@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandbox Playground</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Dependências do Orquestra BPMS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,800;1,700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    href="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css"
+    rel="stylesheet"
+    integrity="sha384-AfZ+8dl93QPpFmy0Q1kFwfwG1NBplh51QAw7oZCXARa9KWcl9Xx/7vk16PCDna/T"
+    crossorigin="anonymous"
+  >
+
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    rel="stylesheet"
+  >
+
+  <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous">
+  </script>
+
+  <script
+    src="https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"
+    integrity="sha384-c9p7VJz4n41pctsFNm0SJNtxs1tEtVpbHd6KlMj1gRb5G3hVejCHUMwu+jfyRnNK"
+    crossorigin="anonymous">
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.pt-BR.min.js">
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.27/jquery.colorbox-min.js"
+    integrity="sha256-WVuGuZJygQFBF0p+pIbDKXbORSkz1gtIoYRg/tyK12g="
+    crossorigin="anonymous">
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/0.7.5/jquery.mask.min.js"
+    integrity="sha256-dTELBl/95srXidBK2KwEwgU1iaCRClGYvGnbTlcCPIg="
+    crossorigin="anonymous">
+  </script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="navbar navbar-inverse">
+      <a href="#" class="navbar-item js-toggle-colorbox">Ativar Colorbox</a>
+    </header>
+    <div class="title">
+      <span class="label label-info">P04.ABBR - Meu Processo Teste v.1</span>
+      <span class="label label-success">Processo número 123</span>
+      <h1>Minha Tarefa Exemplo</h1>
+      <br>
+    </div>
+    <div class="content">
+      <div class="well">
+        <strong>Esta tarefa consiste em:</strong>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quas saepe laboriosam molestias est non repudiandae? In beatae vero dignissimos eveniet quos, sapiente obcaecati ut, officiis voluptas inventore quae incidunt!</p>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span9 main-content">
+          <div class="box spaced" id="requester">
+            <div class="box-header small muted right">dados do requisitante</div>
+            <div class="box-body padded">
+              <div class="user user-big">
+                <div class="user-photo">
+                  <abbr class="initials">A</abbr>
+                </div>
+                <div class="user-content">
+                  <div><strong>John Doe</strong> john.doe</div>
+                  <a href="#">john.doe@email.com</a>
+                  <div class="muted">Área (Posição)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box spaced" id="form">
+            <header class="box-header">
+              <h2>Formulário</h2>
+            </header>
+            <main class="box-body form-body" id="BoxFrmExecute">
+
+              <!-- Form Content-->
+              <block name="content"></block>
+
+            </main>
+          </div>
+
+          <div class="box spaced" id="messages">
+            <header class="box-header">
+              <h2>Mensagens</h2>
+            </header>
+            <main class="box-body">
+              <table class="table small" id="tbl-messages">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Data</th>
+                    <th>Responsável atual</th>
+                    <th>Mensagem</th>
+                    <th>Tarefa</th>
+                    <th>Processo</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <div class="user user-small">
+                        <div class="user-content text-right">
+                          <div><strong>John Doe</strong></div>
+                          <a href="#">john.doe@email.com</a>
+                        </div>
+                        <div class="user-photo">
+                          <abbr class="initials">A</abbr>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="flex flex-column">
+                        <textarea class="full-width" placeholder="Digite uma mensagem..." rows="4"></textarea>
+                        <div>
+                          <button class="btn btn-primary btn-small">Adicionar</button>
+                          <a href="#">Cancelar</a>
+                        </div>
+                        <div class="alert alert-info spaced">
+                          Utilize @nome ou @login para mencionar e notificar um usuário.
+                        </div>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </main>
+          </div>
+
+          <div class="box spaced" id="attach">
+            <header class="box-header">
+              <h2>Anexos</h2>
+            </header>
+            <main class="box-body">
+              <div class="row-fluid">
+                <div class="span9 padded">
+                  <button class="btn btn-primary btn-small">
+                    <i class="icon-upload icon-white"></i> Carregar
+                  </button>
+                  <button class="btn btn-small">
+                    <i class="icon icon-book"></i> Visualizar Documentos
+                  </button>
+                  <label class="inline small">
+                    <input type="checkbox"> Incluir versões anteriores
+                  </label>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <div class="span3 main-sidebar">
+          <div class="top-0" data-spy="affix" data-offset-top="250">
+            <div class="box spaced" id="history">
+              <header class="box-header box-header-small">
+                <a href="#">
+                  <h3 class="text-info">Histórico desta solicitação</h3>
+                </a>
+              </header>
+              <div class="box-body small clearfix">
+                <table class="table">
+                  <tr>
+                    <td>
+                      <div class="user user-small flex-column">
+                        <div class="user-photo">
+                          <abbr class="initials">A</abbr>
+                        </div>
+                        <div class="user-content">
+                          <div><strong>John Doe</strong></div>
+                          <a href="#">john.doe@email.com</a>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      Tarefa Qualquer
+                      <div class="muted">
+                        <strong>21/06/2020</strong> 15:30
+                      </div>
+                    </td>
+                    <td>
+                      <div class="label">Concluído</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="box spaced">
+              <header class="box-header box-header-small">
+                <a href="#">
+                  <h3 class="text-info">Solicitações vinculadas</h3>
+                </a>
+                <div class="well small">Permite iniciar novos processos para que fiquem vinculados à instância de processo atual.</div>
+              </header>
+              <div class="box-body small clearfix">
+                <div class="padded">
+                  <button class="btn btn-primary btn-small">
+                    <i class="icon-plus icon-white"></i> Iniciar nova solicitação
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span9">
+          <div class="box spaced">
+            <header class="box-header">
+              <h2>Finalização</h2>
+            </header>
+            <main class="box-body padded" id="controllers">
+              <div class="well small">Esta atividade está sob sua responsabilidade.Após avaliar todas as informações desta requisição escolha entre uma das opções abaixo.</div>
+              <div id="buttons">
+                <div class="btn-group dropup right">
+                  <button class="btn dropdown-toggle">Mais opções <span class="carret"></span></button>
+                </div>
+                <button class="btn btn-primary">Concluir</button>
+
+                <!-- Form Buttons -->
+                <block name="buttons"></block>
+
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('input[mask="date"]').datepicker({
+      format: 'dd/mm/yyyy',
+      language: 'pt-BR',
+      autoclose: true,
+      forceParse: false,
+      todayHighlight: true
+    })
+  </script>
+  <script type="module" src="../sandbox/js/sandbox.js"></script>
+  <script type="module" src="../playground/playground.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+///
+/// Flat Modifiers
+///
+
+.btn,
+.btn-primary,
+.btn-success,
+.btn-info {
+  background-image: none;
+  box-shadow: none !important;
+  text-shadow: none;
+}
+
+.btn:not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-info) {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: none;
+}

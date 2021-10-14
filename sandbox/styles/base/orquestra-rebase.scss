@@ -1,0 +1,282 @@
+/// temp
+#frm > .alert.alert-info {
+  display: none;
+}
+
+///
+/// #frm - iFrame com Formulário
+///
+#frm {
+  margin: 0;
+}
+
+///
+/// Barra superior de navegação
+///
+#frm > .header {
+  display: none;
+}
+
+///
+/// Box
+///
+.box {
+  // border: 2px solid $color-grey-100;
+  // box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.015);
+}
+
+///
+/// Contâiners max-width
+/// Previne que o conteúdo se estenda pelo tamanho total do navegador
+///
+#frm > .title,
+#frm > .content > .well:first-of-type,
+#controllers,
+.main-col {
+  max-width: 1024px; // @todo
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+///
+/// Identificação do Processo
+///
+#frm > .title {
+  position: relative;
+  margin-top: 0;
+  border-bottom: none;
+}
+
+.flow-title {
+  display: inline-block;
+  line-height: 1.2;
+  text-shadow: none;
+  color: $color-grey-500;
+  background-color: transparent;
+  font-weight: $font-normal;
+
+  &::before {
+    content: "\f542";
+    font-family: $font-icons;
+    font-weight: 900;
+    font-size: 10px;
+    color: $color-blue-600;
+    margin-right: 6px;
+  }
+
+  & + .label {
+    background-color: transparent;
+    font-weight: $font-normal;
+    text-shadow: none;
+
+    a {
+      color: $color-blue-600;
+      font-size: 0;
+      margin-left: 4px;
+
+      &:focus,
+      &:hover {
+        color: $color-blue-800;
+        text-decoration: none;
+      }
+
+      .flow-instance {
+        position: relative;
+        font-size: $font-m;
+        padding-left: 16px;
+
+        &::before {
+          content: 'nº ';
+        }
+
+        &::after {
+          position: absolute;
+          content: "\f35d";
+          font-family: $font-icons;
+          font-weight: 900;
+          font-size: 10px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+h1.task-title {
+  padding-top: 0;
+  font-size: $font-4xl;
+  font-weight: $font-medium;
+  color: $color-grey-800;
+}
+
+///
+/// Descrição da Tarefa
+///
+.content > .well {
+  box-shadow: none;
+  background-color: $color-grey-0;
+  border: 1px solid $color-grey-200;
+  font-size: $font-m;
+  line-height: 1.5;
+
+  > p:first-of-type {
+    max-width: 824px;
+
+    > b:first-of-type,
+    > br:first-of-type {
+      display: none;
+    }
+  }
+}
+
+///
+/// Dados do Requisitante
+///
+#RequesterInfo {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 324px;
+  margin-top: 0;
+  padding-top: 8px;
+  border-radius: 0;
+  border: none;
+
+  .box-header {
+    display: none;
+  }
+
+  .user-content {
+    padding-top: 8px;
+    line-height: 1.3;
+
+    a {
+      font-size: $font-m;
+    }
+  }
+
+  .user-photo {
+    width: 42px;
+    height: 42px;
+    margin-right: 12px;
+  }
+
+  &::after {
+    content: 'Solicitado por';
+    position: absolute;
+    top: 0;
+    left: 12px;
+    font-size: $font-sm;
+    color: $color-grey-400;
+  }
+}
+
+///
+/// Conteúdo
+///
+#frm > .content {
+  border-top: 1px solid $color-grey-200;
+  padding: 12px 0 64px 0;
+
+  .main-col {
+    width: 100%;
+    float: initial;
+  }
+}
+
+///
+/// Formulário
+///
+#ContainerForm {
+  .box-header {
+    display: none;
+  }
+}
+
+#BoxFrmExecute {
+  padding: 24px 0;
+}
+
+table.form {
+  width: 100%;
+
+  tr td {
+    border: none;
+
+    &.group {
+      color: $color-blue-800;
+      font-size: $font-lg;
+      padding-bottom: 24px; // @todo
+    }
+  }
+}
+
+#FrmExecute {
+  width: 100%;
+
+  > tbody > tr:not(:last-child) {
+    > td {
+      padding-bottom: 48px; // @todo
+    }
+  }
+}
+
+///
+/// Botões de Finalização
+///
+.content > .row-fluid:nth-child(3) {
+  position: fixed;
+  background-color: #fff;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid $color-grey-200;
+  padding: 2px 0 0 0;
+
+  .box {
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .box-header {
+    display: none;
+  }
+}
+
+.buttons-col {
+  width: 100% !important;
+
+  & + .span3 {
+    display: none;
+  }
+}
+
+#controllers {
+  > .well:first-of-type {
+    display: none;
+  }
+}
+
+#BoxForceInputReason {
+  box-shadow: none;
+  background-color: $color-grey-0;
+  border: 1px solid $color-grey-200;
+}
+
+///
+/// Rodapé
+/// Não utilizado
+///
+#div-footer {
+  display: none;
+}
+
+///
+/// Histórico, Solicitações Vinculadas
+///
+.lateral-col {
+  position: fixed;
+  right: 0;
+}

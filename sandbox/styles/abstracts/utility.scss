@@ -1,0 +1,150 @@
+//
+// Display
+//
+.hidden,
+.u-hidden {
+  display: none !important;
+}
+
+//
+// Position
+//
+.u-relative {
+  position: relative !important;
+}
+
+.u-absolute {
+  position: absolute !important;
+}
+
+.u-flex-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+//
+// Spacing
+//
+$directions: "top", "right", "bottom", "left";
+$sizes: (
+  "1":  $space-1,
+  "2":  $space-2,
+  "3":  $space-3,
+  "4":  $space-4,
+  "5":  $space-5,
+  "6":  $space-6,
+  "7":  $space-7,
+  "8":  $space-8,
+  "9":  $space-9,
+  "10": $space-10,
+  "11": $space-11,
+  "12": $space-12,
+  "13": $space-13,
+  "14": $space-14,
+  "15": $space-15,
+  "16": $space-16,
+  "17": $space-17,
+  "18": $space-18,
+  "19": $space-19,
+  "20": $space-20,
+);
+
+@each $sizeName, $size in $sizes {
+  @each $dir in $directions {
+    .u-margin-#{$dir}-#{$sizeName} {
+      margin-#{$dir}: $size !important;
+    }
+  }
+}
+
+//
+// Font Size
+//
+$font-sizes: (
+  "xxs":   $font-xxs,
+  "xs":    $font-xs,
+  "sm":    $font-sm,
+  "m":     $font-m,
+  "base":  $font-base,
+  "lg":    $font-lg,
+  "xl":    $font-xl,
+  "2xl":   $font-2xl,
+  "3xl":   $font-3xl
+);
+
+@each $sizeName, $size in $font-sizes {
+  .u-text-#{$sizeName} {
+    font-size: $size !important;
+  }
+}
+
+//
+// Text Align
+//
+$text-directions: "left", "center", "right";
+
+@each $text-direction in $text-directions {
+  .u-text-#{$text-direction} {
+    text-align: $text-direction !important;
+  }
+}
+
+//
+// Text Color
+//
+$colors: "grey", "blue", "green", "red", "yellow";
+
+@each $color in $colors {
+  @for $i from 0 through 100 {
+    $colorScale: $i * 100;
+
+    .u-text-#{$color}-#{$colorScale} {
+      color: map-get($colors-map, #{$color}-#{$colorScale}) !important;
+    }
+  }
+}
+
+//
+// Text Weight
+//
+.u-text-light {
+  font-weight: $font-light !important;
+}
+
+.u-text-normal {
+  font-weight: $font-normal !important;
+}
+
+.u-text-medium {
+  font-weight: $font-medium !important;
+}
+
+.u-text-bold {
+  font-weight: $font-bold !important;
+}
+
+//
+// Text Align
+//
+.u-text-left {
+  text-align: left;
+}
+
+.u-text-right {
+  text-align: right;
+}
+
+//
+// Text Max Width
+//
+.u-text-width-md {
+  max-width: 520px;
+}
+
+//
+// Transform
+//
+.u-rotate-45deg {
+  transform: rotate(-45deg);
+}

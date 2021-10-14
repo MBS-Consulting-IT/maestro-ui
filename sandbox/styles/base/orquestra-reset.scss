@@ -1,0 +1,149 @@
+input,
+button,
+select,
+textarea,
+.btn-group > .btn,
+.btn-group > .dropdown-menu,
+.btn-group > .popover {
+  font-size: $form-ctrl-font-size !important; // @override global.css
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: $font-family;
+}
+
+footer {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+label {
+  font-size: $font-base !important; // @override global.css;
+  margin-bottom: 0;
+}
+
+input[type=text][mask=date] {
+  width: 96px !important;
+}
+
+.dropdown-right {
+  right: 0;
+  left: initial !important;
+
+  li > a {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+
+    > div {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.datepicker {
+  table {
+    font-family: $font-family !important;
+
+    th {
+      color: $color-grey-700 !important;
+      font-weight: $font-medium;
+    }
+
+    thead th:not(.dow):hover {
+      background-color: $color-grey-100 !important;
+    }
+
+    td,
+    th {
+      background-color: transparent !important;
+    }
+
+    td {
+      .year,
+      .month,
+      &.day {
+        width: 30px;
+
+        &.old,
+        &.new {
+          color: $color-grey-400 !important;
+        }
+
+        &.active,
+        &.selected {
+          background-image: none !important;
+          background-color: $color-blue-600 !important;
+          text-shadow: none !important;
+        }
+
+        &.selected {
+          background-color: $color-grey-300 !important;
+          color: $color-grey-800 !important;
+        }
+
+        &.active {
+          background-color: $color-blue-600 !important;
+          color: #fff !important;
+        }
+
+        &:not(.active):not(.selected):hover {
+          background-color: $color-grey-100 !important;
+        }
+      }
+    }
+  }
+}
+
+div[xtype=FILE] {
+  a:first-of-type {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    color: $color-blue-600 !important;
+  }
+
+  a + a[title=Download] {
+    margin-left: $space-1;
+  }
+
+  a + .btn.btn-mini.btn-danger {
+    position: relative;
+    top: 3px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-family: 'Font Awesome 5 Free', sans-serif;
+    font-weight: 900;
+
+    &::after {
+      content: '\f00d';
+      color: $color-grey-600;
+    }
+
+    > .icon-remove {
+      display: none;
+    }
+
+    &:hover {
+      background-color: $color-grey-100;
+
+      &::after {
+        color: $color-grey-700;
+      }
+    }
+  }
+
+  .icon-download {
+    margin-right: $space-3;
+  }
+}

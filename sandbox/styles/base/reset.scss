@@ -1,0 +1,70 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  font-family: $font-family;
+  font-size: 13.33px;
+  color: $color-grey-700;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  cursor: pointer;
+  color: $color-blue-600;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: $color-blue-800;
+    text-decoration: none;
+  }
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+select,
+textarea,
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel] {
+  &:disabled {
+    background-color: $color-grey-100;
+    pointer-events: none;
+  }
+}

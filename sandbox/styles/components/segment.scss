@@ -1,0 +1,80 @@
+$segment-space: 3px;
+$segment-height: 36px;
+$segment-selected-height: 28px;
+
+.o-segments {
+  display: flex;
+  position: relative;
+  height: $segment-height;
+  background-color: $color-grey-100;
+  border: 1px solid transparent;
+  border-radius: $border-radius-base;
+  padding: $segment-space;
+  overflow: hidden;
+  transition: $form-ctrl-transition;
+
+  &:focus {
+    outline: none;
+    border-color: $form-ctrl-focus-border-color;
+    box-shadow: $form-ctrl-focus-shadow;
+  }
+
+  &.-disabled {
+    .o-segment {
+      &:not(.-active) {
+        color: $color-grey-300;
+      }
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    .o-segment-selection {
+      box-shadow: none;
+    }
+  }
+}
+
+.o-segment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  color: $color-grey-500;
+  user-select: none;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.15s linear;
+
+  &:hover:not(.-active) {
+    color: $color-grey-800;
+  }
+
+  &.-active {
+    color: $color-grey-800;
+    font-weight: $font-medium;
+  }
+}
+
+.o-segment-selection {
+  position: absolute;
+  opacity: 0;
+  height: $segment-selected-height;
+  top: $segment-space;
+  right: 100%;
+  width: 0;
+  background-color: #fff;
+  border-radius: $border-radius-base;
+  border: 1px solid $color-grey-300;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.05);
+  cursor: default;
+  z-index: 1;
+
+  &.-animated {
+    transition:
+      transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 0.15s linear;
+  }
+}

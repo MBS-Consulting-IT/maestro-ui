@@ -1,0 +1,160 @@
+///
+/// Global Side Effects
+///
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #6a6a6a;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 20px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+}
+
+label {
+  font-size: 10pt;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  margin: 0;
+}
+
+textarea,
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel],
+input[type=color],
+.uneditable-input {
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+}
+
+input:focus:required:invalid:focus,
+textarea:focus:required:invalid:focus,
+select:focus:required:invalid:focus {
+  color: #000;
+  border-color: rgba(82, 168, 236, 0.8) !important;
+  outline: 0 !important;
+  outline: thin dotted \9 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+}
+
+select,
+input[type=text] {
+  width: 200px;
+}
+
+label,
+input,
+button,
+select,
+textarea,
+.btn-group > .btn,
+.btn-group > .dropdown-menu,
+.btn-group > .popover {
+  font-size: 10pt !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  color: #000;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 40px;
+}
+
+h1 {
+  font-size: 200%;
+  padding-top: 8px;
+}
+
+h2 {
+  font-size: 135%;
+  color: #5f6466;
+  margin: 5px 0;
+}
+
+h3 {
+  font-size: 110%;
+  color: #5f6466;
+  font-weight: normal;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+///
+/// Global Helpers
+///
+
+.small:not(label) {
+  font-size: 80%;
+
+  textarea {
+    font-size: 8pt;
+  }
+}
+
+.right {
+  float: right;
+}
+
+.spaced {
+  margin-top: 15px;
+}
+
+.padded {
+  padding: 10px;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.top-0 {
+  top: 0;
+}

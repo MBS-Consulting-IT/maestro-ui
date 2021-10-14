@@ -1,0 +1,181 @@
+///
+/// Application Shell
+///
+.app-shell {
+  background-color: #f4f4f7;
+  max-height: 100vh;
+  overflow: auto;
+  z-index: 1;
+
+  &.colorboxed {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 85%;
+    min-width: 85%;
+    max-height: 93%;
+    overflow: auto;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 30px;
+  margin-bottom: 0;
+  padding: 0 12px;
+
+  &.navbar-inverse {
+    background-color: #223d5a;
+  }
+}
+
+.navbar-item {
+  color: #fff;
+  opacity: 0.6;
+  font-size: 12px;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:visited {
+    color: #fff;
+  }
+}
+
+.content {
+  padding: 12px;
+}
+
+.title {
+  margin-top: 4px;
+  padding: 20px 10px 0 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #e4e4e7;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.box {
+  background-color: #fff;
+  border: 7px solid #edecf0;
+  border-radius: 5px;
+  text-shadow: none;
+}
+
+.box-header {
+  padding: 10px 10px 0 10px;
+}
+
+.box-header-small {
+  padding-top: 0;
+}
+
+.user {
+  display: flex;
+}
+
+.user-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #333;
+
+  .initials {
+    color: #fff;
+    font-size: 20px;
+  }
+}
+
+.user.user-small {
+  .user-photo {
+    width: 30px;
+    height: 30px;
+
+    .initials {
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+}
+
+.well {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.carret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 0;
+  border-bottom: 4px solid #000;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  margin: 8px 0 0;
+}
+
+.table {
+  color: #515151;
+
+  th {
+    background-color: #f4f4f7;
+    padding: 15px 5px 15px 5px;
+    color: #404851;
+    border-bottom: 1px solid #e4e4e7;
+    vertical-align: top;
+    font-weight: 400;
+  }
+}
+
+#tbl-messages {
+  td:nth-child(1) {
+    width: 20px;
+  }
+
+  td:nth-child(2) {
+    width: 60px;
+  }
+
+  td:nth-child(3) {
+    width: 160px;
+  }
+
+  td:nth-child(4) {
+    min-width: 100%;
+  }
+
+  td:nth-child(5) {
+    width: 150px;
+  }
+
+  td:nth-child(6) {
+    width: 45px;
+  }
+
+  td:nth-child(7) {
+    width: 20px;
+  }
+}
+
+.main-sidebar {
+  .affix {
+    margin-right: 12px;
+  }
+}

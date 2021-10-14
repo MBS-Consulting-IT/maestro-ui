@@ -1,0 +1,195 @@
+////
+/// Design Tokens
+/// @group variables
+////
+
+//
+// Colors
+//
+
+$colors-map: (
+  grey-0:   #f9fafb,
+  grey-100: #f4f5f6,
+  grey-200: #e9eaec,
+  grey-300: #d4d5d9,
+  grey-400: #a8abb2,
+  grey-500: #7d838c,
+  grey-600: #5b6067,
+  grey-700: #3f434a,
+  grey-800: #262a31,
+  grey-900: #15181e,
+  blue-0:   #ebf6ff,
+  blue-100: #dbeafe,
+  blue-200: #c3e0f9,
+  blue-300: #99caf5,
+  blue-400: #6bb2f0,
+  blue-500: #1787e8,
+  blue-600: #006dcc,
+  blue-700: #0d5ea5,
+  blue-800: #0d528e,
+  blue-900: #163d60,
+  green-0:   #edfded,
+  green-100: #defcde,
+  green-200: #bcf6bc,
+  green-300: #91e391,
+  green-400: #7dd47d,
+  green-500: #6c6,
+  green-600: #5bb75b,
+  green-700: #36a136,
+  green-800: #1f7a1f,
+  green-900: #1c5e1c,
+  red-0:   #fef2f2,
+  red-100: #fce0de,
+  red-200: #feccca,
+  red-300: #faaba8,
+  red-400: #f87571,
+  red-500: #ed4c45,
+  red-600: #da4f49,
+  red-700: #c13833,
+  red-800: #8e241f,
+  red-900: #72201d,
+  yellow-0:   #fff7eb,
+  yellow-100: #fff1db,
+  yellow-200: #ffe9bd,
+  yellow-300: #ffda8f,
+  yellow-400: #ffc966,
+  yellow-500: #fbba51,
+  yellow-600: #faa732,
+  yellow-700: #d97c12,
+  yellow-800: #b35b0f,
+  yellow-900: #84370b
+);
+
+$color-grey-0:   #f9fafb;
+$color-grey-100: #f4f5f6;
+$color-grey-200: #e9eaec;
+$color-grey-300: #d4d5d9;
+$color-grey-400: #a8abb2;
+$color-grey-500: #7d838c;
+$color-grey-600: #5b6067;
+$color-grey-700: #3f434a;
+$color-grey-800: #262a31;
+$color-grey-900: #15181e;
+
+$color-blue-0:   #ebf6ff;
+$color-blue-100: #dbeafe;
+$color-blue-200: #c3e0f9;
+$color-blue-300: #99caf5;
+$color-blue-400: #6bb2f0;
+$color-blue-500: #1787e8;
+$color-blue-600: #006dcc;
+$color-blue-700: #0d5ea5;
+$color-blue-800: #0d528e;
+$color-blue-900: #163d60;
+
+$color-green-0:   #edfded;
+$color-green-100: #defcde;
+$color-green-200: #bcf6bc;
+$color-green-300: #91e391;
+$color-green-400: #7dd47d;
+$color-green-500: #6c6;
+$color-green-600: #5bb75b;
+$color-green-700: #36a136;
+$color-green-800: #1f7a1f;
+$color-green-900: #1c5e1c;
+
+$color-red-0:   #fef2f2;
+$color-red-100: #fce0de;
+$color-red-200: #feccca;
+$color-red-300: #faaba8;
+$color-red-400: #f87571;
+$color-red-500: #ed4c45;
+$color-red-600: #da4f49;
+$color-red-700: #c13833;
+$color-red-800: #8e241f;
+$color-red-900: #72201d;
+
+$color-yellow-0:   #fff7eb;
+$color-yellow-100: #fff1db;
+$color-yellow-200: #ffe9bd;
+$color-yellow-300: #ffda8f;
+$color-yellow-400: #ffc966;
+$color-yellow-500: #fbba51;
+$color-yellow-600: #faa732;
+$color-yellow-700: #d97c12;
+$color-yellow-800: #b35b0f;
+$color-yellow-900: #84370b;
+
+//
+// Spacing
+//
+
+$space-1:  4px;
+$space-2:  6px;
+$space-3:  8px;
+$space-4:  12px;
+$space-5:  16px;
+$space-6:  20px;
+$space-7:  24px;
+$space-8:  28px;
+$space-9:  32px;
+$space-10: 36px;
+$space-11: 42px;
+$space-12: 48px;
+$space-13: 64px;
+$space-14: 80px;
+$space-15: 96px;
+$space-16: 124px;
+$space-17: 148px;
+$space-18: 192px;
+$space-19: 288px;
+$space-20: 384px;
+
+//
+// Borders
+//
+$border-grey-light: 1px solid $color-grey-200;
+$border-radius-base: 4px;
+$border-radius-lg: 8px;
+
+//
+// Typograph
+//
+
+$font-family: "Roboto", "Helvetica Neue", helvetica, arial, sans-serif;
+$font-icons: "Font Awesome 5 Free", sans-serif;
+
+$font-xxs:  9px;
+$font-xs:   10px;
+$font-sm:   11px;
+$font-m:    12px;
+$font-base: 14px;
+$font-lg:   16px;
+$font-xl:   18px;
+$font-2xl:  20px;
+$font-3xl:  24px;
+$font-4xl:  28px;
+$font-5xl:  36px;
+$font-6xl:  48px;
+$font-7xl:  64px;
+
+$font-light:  300;
+$font-normal: 400;
+$font-medium: 500;
+$font-bold:   700;
+
+//
+// Form
+//
+
+$form-max-width: 1024px;
+$form-group-gap: $space-8;
+
+//
+// Form Controls
+//
+
+$form-ctrl-height: 30px;
+$form-ctrl-font-size: 13.33px;
+$form-ctrl-border-color: $color-grey-300;
+$form-ctrl-border: 1px solid $form-ctrl-border-color;
+$form-ctrl-focus-shadow: 0 0 1px 2px rgba($color-blue-500, 0.25);
+$form-ctrl-focus-border-color: $color-blue-400;
+$form-ctrl-focus-border: 1px solid $form-ctrl-focus-border-color;
+$form-ctrl-transition: border linear 0.15s, box-shadow linear 0.15s;
+$form-ctrl-radius: 4px;
