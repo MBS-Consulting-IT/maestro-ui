@@ -1,22 +1,16 @@
+import pkg from './package.json'
+
 export default {
-  input: './src/main.js',
+  input: './src/js/main.js',
   output: [
     {
-      name: 'Maestro',
-      file: 'dist/orquestra-utils.js',
+      file: pkg.module,
+      format: 'esm'
+    },
+    {
+      name: 'Utils',
+      file: pkg.browser,
       format: 'umd'
-    },
-    {
-      name: 'Maestro',
-      file: 'dist/orquestra-utils.esm.js',
-      format: 'esm',
-      exports: 'named'
-    },
-    {
-      name: 'Maestro',
-      file: 'dist/orquestra-utils.cjs.js',
-      format: 'cjs',
-      exports: 'named'
     }
   ]
 }

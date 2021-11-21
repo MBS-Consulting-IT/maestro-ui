@@ -5,16 +5,10 @@ module.exports = {
     jquery: true,
     jest: true
   },
-  extends: [
-    'standard'
-  ],
+  extends: ['standard'],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  rules: {
-  },
-  plugins: [
-    'html'
-  ]
+  rules: {}
 }

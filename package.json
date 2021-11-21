@@ -1,13 +1,13 @@
 {
   "name": "maestro-ui",
-  "description": "A UI component library for Orquestra BPMS",
+  "description": "UI Component library for Orquestra BPMS",
   "version": "0.1.0",
-  "main": "index.js",
-  "module": "",
-  "license": "GNU LGPL V3.0",
+  "main": "dist/maestro-ui.esm.js",
+  "browser": "dist/maestro-ui.js",
+  "license": "LGPL-3.0",
   "author": "Pedro Bernardo <pedrovbernardo@gmail.com>",
   "scripts": {
-    "play": "parcel playground/index.html --port 1234 --dist-dir output",
+    "play": "parcel playground/index.html --port 1234 --dist-dir output --open",
     "dev": "rollup -c -w",
     "prebuild": "rimraf dist",
     "build": "rollup -c",
@@ -16,6 +16,7 @@
   },
   "keywords": [
     "orquestra",
+    "zeev",
     "bpm",
     "bpms",
     "component",
@@ -23,32 +24,30 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MBS-Consulting-IT/maestro-ui.git"
+    "url": "git+https://github.com/pedbernardo/maestro-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/MBS-Consulting-IT/maestro-ui/issues"
+    "url": "https://github.com/pedbernardo/maestro-ui/issues"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.6",
-    "@parcel/transformer-sass": "^2.0.0-rc.0",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@types/jest": "^27.0.2",
-    "babel-jest": "^27.2.4",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@parcel/transformer-sass": "^2.0.1",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@types/jest": "^27.0.3",
     "chance": "^1.1.8",
-    "eslint": "^7.32.0",
+    "eslint": "7.12.1",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-html": "^6.2.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "jest": "^27.2.4",
-    "parcel": "^2.0.0-rc.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "jest": "^27.3.1",
+    "parcel": "^2.0.1",
     "posthtml": "^0.16.5",
     "posthtml-expressions": "^1.9.0",
-    "posthtml-extend": "^0.6.0",
-    "posthtml-include": "^1.7.1",
+    "posthtml-extend": "^0.6.1",
+    "posthtml-include": "^1.7.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.58.0"
+    "rollup": "^2.60.0"
   }
 }
