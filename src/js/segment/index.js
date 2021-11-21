@@ -5,9 +5,9 @@ import {
   POSITION
 } from './constants'
 
-import { resolveReference } from '../_base/resolve-reference'
-import { resolveInstance } from '../_base/resolve-instance'
-import { resolveOrquestraField } from '../_base/resolve-field'
+import { resolveReference } from '../base/resolve-reference'
+import { resolveInstance } from '../base/resolve-instance'
+import { resolveOrquestraField } from '../base/resolve-field'
 
 export function Segment (reference, props = {}) {
   const container = resolveReference(reference, {
