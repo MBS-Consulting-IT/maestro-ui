@@ -83,7 +83,7 @@ function TextCountFactory (container) {
   function createCounter () {
     const counterContainer = document.createElement('div')
     counterContainer.classList.add(CSS_CLASSES.CTRL_CLASS)
-    counterContainer.innerText = `${instance.controller.textLength}/${instance.controller.maxLength}`
+    counterContainer.innerText = `${instance.controller.value.length}/${instance.controller.maxLength}`
     container.insertAdjacentElement('beforeend', counterContainer)
     instance.textCount = counterContainer
   }
@@ -97,7 +97,7 @@ function TextCountFactory (container) {
   }
 
   function updateCounter () {
-    instance.textCount.innerText = `${instance.controller.textLength}/${instance.controller.maxLength}`
+    instance.textCount.innerText = `${instance.controller.value.length}/${instance.controller.maxLength}`
     if (isFieldFull()) {
       instance.textCount.classList.add(CSS_CLASSES.COUNTER_FULL)
     } else {
@@ -106,7 +106,7 @@ function TextCountFactory (container) {
   }
 
   function isFieldFull () {
-    return instance.controller.textLength === instance.controller.maxLength
+    return instance.controller.value.length === instance.controller.maxLength
   }
 
   function updateMax (newMax) {
@@ -119,12 +119,12 @@ function TextCountFactory (container) {
 
   function setEnabled () {
     state.disabled = false
-    instance.switch.classList.remove(CSS_CLASSES.DISABLED_CLASS)
+    instance.textCount.classList.remove(CSS_CLASSES.DISABLED_CLASS)
   }
 
   function setDisabled () {
     state.disabled = true
-    instance.switch.classList.add(CSS_CLASSES.DISABLED_CLASS)
+    instance.textCount.classList.add(CSS_CLASSES.DISABLED_CLASS)
   }
 
   function disable () {

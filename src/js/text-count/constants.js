@@ -1,7 +1,7 @@
 export const NAME = 'TextCount'
 
 export const FIELD = {
-  EDITABLE: 'textarea[xname]',
+  EDITABLE: '[xname]',
   READONLY: 'input[type=hidden][xname]',
   TEXT: 'div[xid]'
 }
