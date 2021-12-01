@@ -1,0 +1,25 @@
+$help-size: 18px;
+
+.o-help {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -2px;
+  width: $help-size;
+  height: $help-size;
+  margin-left: $space-1;
+  margin-right: $space-1;
+  background-color: #fff;
+  font-size: 8px;
+  color: $color-blue-500;
+  border-radius: 50%;
+  border: 1px solid $color-grey-300;
+  outline: none;
+  cursor: help;
+
+  &:focus {
+    box-shadow: $form-ctrl-focus-shadow;
+    border-color: $form-ctrl-focus-border-color;
+  }
+}
