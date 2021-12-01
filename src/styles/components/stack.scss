@@ -1,0 +1,29 @@
+.o-stack {
+  display: flex;
+  flex-direction: column;
+
+  &.-loading {
+    @include paneLoader;
+  }
+}
+
+.o-stack-item {
+  padding: $space-4 $space-6;
+  border: 1px solid $color-grey-300;
+
+  &:not(:last-of-type) {
+    border-bottom: none;
+  }
+
+  &:first-of-type {
+    border-radius: $border-radius-base $border-radius-base 0 0;
+  }
+
+  &:last-of-type {
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+  }
+
+  &:only-child {
+    border-radius: $border-radius-base;
+  }
+}

@@ -1,0 +1,49 @@
+.o-tile {
+  display: flex;
+  align-items: flex-start;
+  align-content: space-between;
+
+  &.-tight {
+    .o-tile-content {
+      padding-left: $space-1;
+    }
+  }
+}
+
+.o-tile-icon {
+  flex: 0 0 auto;
+}
+
+.o-tile-content {
+  flex: 1 1 auto;
+  padding-left: $space-5;
+}
+
+.o-tile-field,
+.o-tile-title {
+  line-height: 1;
+  font-size: $font-m;
+  font-weight: $font-medium;
+  color: $color-grey-600;
+}
+
+.o-tile-subtitle {
+  display: block;
+  font-size: $font-m;
+  color: $color-grey-400;
+}
+
+.o-tile-label {
+  line-height: 1;
+  font-size: $font-m !important; // @override global.css
+  color: $color-grey-400;
+  margin-bottom: $space-2;
+}
+
+.o-tile-field {
+  display: block;
+
+  & + .o-tile-label {
+    margin-top: $space-8;
+  }
+}
