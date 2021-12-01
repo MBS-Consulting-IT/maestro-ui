@@ -1,0 +1,45 @@
+$icon-sizes: (
+  "sm":    12px,
+  "m":     14px,
+  "base":  16px,
+  "lg":    20px,
+  "xl":    24px
+);
+
+.o-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+
+  &.-sm {
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+  }
+
+  &.-m {
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+  }
+
+  &.-lg {
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+  }
+
+  &.-xl {
+    width: 28px;
+    height: 28px;
+    font-size: 24px;
+  }
+
+  &.-spaced {
+    & + * {
+      margin-left: $space-1;
+    }
+  }
+}
