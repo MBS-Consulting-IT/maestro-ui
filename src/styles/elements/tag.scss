@@ -1,0 +1,58 @@
+.o-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-1 $space-2;
+  background-color: $color-grey-100;
+  border-radius: $border-radius-base;
+  font-size: $font-sm;
+  font-weight: $font-medium;
+  color: $color-grey-500;
+  line-height: 1.2;
+
+  &.-success,
+  &.-green {
+    background-color: $color-green-0;
+    color: $color-green-700;
+
+    .tag-icon {
+      color: $color-green-500;
+    }
+  }
+
+  &.-danger,
+  &.-red {
+    background-color: $color-red-0;
+    color: $color-red-700;
+
+    .tag-icon {
+      color: $color-red-500;
+    }
+  }
+
+  &.-warning,
+  &.-yellow {
+    background-color: $color-yellow-0;
+    color: $color-yellow-700;
+
+    .tag-icon {
+      color: $color-yellow-500;
+    }
+  }
+
+  &.-info,
+  &.-blue {
+    background-color: $color-blue-0;
+    color: $color-blue-700;
+
+    .tag-icon {
+      color: $color-blue-500;
+    }
+  }
+}
+
+.o-tag-icon {
+  font-size: $font-xs;
+  margin-right: 4px;
+  color: $color-grey-500;
+}
