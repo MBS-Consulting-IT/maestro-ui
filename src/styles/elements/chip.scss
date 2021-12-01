@@ -1,0 +1,30 @@
+$chip-height: 26px;
+
+.o-chip {
+  display: inline-block;
+  height: $chip-height;
+  padding: 2px $space-4;
+  background-color: #fff;
+  border: 1px solid $color-grey-200;
+  border-radius: $chip-height;
+  font-size: $font-m;
+  font-weight: $font-normal;
+  color: $color-grey-500;
+
+  .o-dot.-pulse {
+    padding-left: $space-4;
+
+    &::after {
+      left: -#{$space-1};
+    }
+
+    &::before {
+      left: -#{$space-4};
+    }
+  }
+}
+
+.o-chip-icon {
+  font-size: $font-xs;
+  margin-right: $space-1;
+}
