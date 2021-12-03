@@ -1,0 +1,101 @@
+.o-collapse {
+
+  &.-spaced {
+    .o-collapse-item {
+      border-radius: $border-radius-base;
+
+      &:not(:first-child) {
+        margin-top: $space-4;
+      }
+    }
+  }
+}
+
+.o-collapse-item {
+  background-color: #fff;
+  border: $border-grey-light;
+
+  &:not(.-active) {
+    .o-collapse-body {
+      display: none;
+    }
+  }
+
+  &.-active {
+    .o-collapse-header {
+      border-radius: $border-radius-base $border-radius-base 0 0;
+
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+
+    .o-collapse-summary {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &:only-child {
+    border-radius: $border-radius-base;
+  }
+
+  &:first-child {
+    border-radius: $border-radius-base $border-radius-base 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+  }
+
+  &:not(:first-child) {
+    margin-top: -1px;
+  }
+}
+
+.o-collapse-header {
+  display: flex;
+  align-items: center;
+  font-size: $font-lg;
+  padding: $space-4 $space-5;
+  transition: background-color ease 0.3s;
+  border-radius: $border-radius-base;
+  line-height: 1.2;
+
+  &:hover {
+    background-color: $color-grey-0;
+    cursor: pointer;
+  }
+
+  &::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 1px; // optical alignment
+    width: 20px;
+    height: 20px;
+    content: "\f078";
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: $color-grey-700;
+    margin-left: auto;
+    margin-right: $space-1;
+    transition: transform ease 0.25s;
+  }
+}
+
+.o-collapse-summary {
+  margin-left: $space-4;
+  margin-right: $space-6;
+  color: $color-grey-400;
+  font-size: $font-m;
+  user-select: none;
+  transition: opacity linear 0.15s;
+}
+
+.o-collapse-body {
+  padding: $space-6 $space-11;
+  border-top: $border-grey-light;
+}

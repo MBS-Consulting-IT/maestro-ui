@@ -1,4 +1,6 @@
 .o-tag {
+  position: relative;
+  top: -1px; // optical aligment
   display: inline-flex;
   align-items: center;
   justify-content: center;

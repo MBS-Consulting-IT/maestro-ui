@@ -9,7 +9,7 @@
 
 .o-stack-item {
   padding: $space-4 $space-6;
-  border: 1px solid $color-grey-300;
+  border: $border-grey-light;
 
   &:not(:last-of-type) {
     border-bottom: none;

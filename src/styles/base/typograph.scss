@@ -1,0 +1,45 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-family: $font-family;
+
+  &::after {
+    content: attr(data-help);
+    margin-left: $space-1;
+    color: $color-grey-400;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+}
+
+h1 {
+  font-size: $font-3xl;
+}
+
+h2 {
+  font-size: $font-2xl;
+}
+
+h3 {
+  font-size: $font-xl;
+  line-height: 1.5;
+}
+
+h4 {
+  font-size: $font-lg;
+}
+
+h5 {
+  font-size: $font-base;
+}
+
+h6 {
+  font-size: $font-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: $color-grey-500;
+}

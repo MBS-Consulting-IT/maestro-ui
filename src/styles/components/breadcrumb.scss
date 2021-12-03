@@ -1,0 +1,48 @@
+.o-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+
+.o-breadcrumb-item {
+  > a {
+    color: $color-blue-500;
+    user-select: none;
+    padding: $space-2 $space-1
+  }
+
+  &:not(.-active) {
+    > a {
+      &:focus,
+      &:hover {
+        color: $color-blue-800;
+      }
+    }
+  }
+
+  &.-active {
+    > a {
+      color: $color-grey-700;
+      font-weight: $font-medium;
+      cursor: default;
+
+      &:focus,
+      &:active {
+        text-decoration: none;
+      }
+    }
+  }
+
+  & + & {
+    &::before {
+      content: "\f054";
+      font-family: "Font Awesome 5 Free", sans-serif;
+      font-size: 10px;
+      font-weight: 900;
+      color: $color-grey-300;
+      margin-left: $space-2;
+      margin-right: $space-2;
+    }
+  }
+}

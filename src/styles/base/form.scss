@@ -1,0 +1,43 @@
+select,
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel] {
+  height: $form-ctrl-height;
+}
+
+textarea,
+select,
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel] {
+  border: 1px solid $color-grey-300;
+  box-shadow: none;
+  transition: $form-ctrl-transition;
+
+  &:focus:required:invalid:focus, // @override globa.css
+  &:focus {
+    outline: 0 !important; // @override important
+    box-shadow: $form-ctrl-focus-shadow !important; // @override important
+    border: $form-ctrl-focus-border !important; // @override important
+  }
+}

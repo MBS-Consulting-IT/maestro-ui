@@ -58,3 +58,15 @@ dd.o-list-subtitle {
   font-weight: $font-normal;
   color: $color-grey-500;
 }
+
+.o-list-group {
+  h2 {
+    font-weight: $font-medium;
+    font-size: $font-lg;
+    color: $color-grey-900;
+  }
+
+  & + & {
+    margin-top: $space-8;
+  }
+}
