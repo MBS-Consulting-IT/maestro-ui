@@ -33,7 +33,7 @@ label {
 }
 
 input[type=text][mask=date] {
-  width: 96px !important;
+  width: 100px !important; // @todo avaliar uso
 }
 
 .dropdown-right {
