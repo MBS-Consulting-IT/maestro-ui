@@ -1,0 +1,78 @@
+$card-padding-sm-x: $space-5;
+$card-padding-sm-y: $space-5;
+$card-padding-x: $space-7;
+$card-padding-y: $space-6;
+
+.o-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: $border-grey-light;
+  border-radius: $border-radius-base;
+
+  &.-padded {
+    padding: $card-padding-x $card-padding-y;
+  }
+
+  &.-padded.-sm {
+    padding: $card-padding-x $card-padding-y;
+  }
+
+  &.-success {
+    border-color: $color-green-400;
+    box-shadow: 0 0 2px 2px rgba($color-green-500, 0.25);
+  }
+
+  &.-info {
+    border-color: $color-blue-400;
+    box-shadow: 0 0 2px 2px rgba($color-blue-500, 0.25);
+  }
+
+  &.-warning {
+    border-color: $color-yellow-400;
+    box-shadow: 0 0 2px 2px rgba($color-yellow-500, 0.25);
+  }
+
+  &.-error {
+    border-color: $color-red-400;
+    box-shadow: 0 0 2px 2px rgba($color-red-500, 0.25);
+  }
+}
+
+.o-card-row {
+  padding-left: $card-padding-x;
+  padding-right: $card-padding-x;
+
+  &:first-child {
+    border-radius: $border-radius-base $border-radius-base 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+  }
+
+  &.-padded {
+    padding-top: $card-padding-y;
+    padding-bottom: $card-padding-y;
+  }
+
+  &.-padded-top {
+    padding-top: $card-padding-y;
+  }
+
+  &.-padded-bottom {
+    padding-bottom: $card-padding-y;
+  }
+
+  &.-border-top {
+    border-top: $border-grey-light;
+  }
+
+  &.-border-bottom {
+    border-bottom: $border-grey-light;
+  }
+
+  &.-grey {
+    background-color: $color-grey-0;
+  }
+}
