@@ -15,6 +15,10 @@
 
 .u-flex {
   display: flex !important;
+
+  &.-align-center {
+    align-items: center;
+  }
 }
 
 
@@ -122,4 +126,13 @@ $colors: "grey", "blue", "green", "red", "yellow";
 
 .u-text-bold {
   font-weight: $font-bold !important;
+}
+
+// Text Line Spacing
+.u-text-line-base {
+  line-height: 1.2;
+}
+
+.u-text-line-lg {
+  line-height: 1.6;
 }
