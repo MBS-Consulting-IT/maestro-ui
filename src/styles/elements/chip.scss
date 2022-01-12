@@ -1,7 +1,9 @@
 $chip-height: 26px;
 
 .o-chip {
-  display: inline-block;
+  display: inline-flex;
+  line-height: $chip-height;
+  align-items: center;
   height: $chip-height;
   padding: 2px $space-4;
   background-color: #fff;
@@ -10,6 +12,7 @@ $chip-height: 26px;
   font-size: $font-m;
   font-weight: $font-normal;
   color: $color-grey-500;
+  line-height: 1;
 
   .o-dot.-pulse {
     padding-left: $space-4;
@@ -25,6 +28,9 @@ $chip-height: 26px;
 }
 
 .o-chip-icon {
+  position: relative;
+  top: -1px;
+  margin-right: 5px;
+  margin-left: -2px;
   font-size: $font-sm;
-  margin-right: $space-1;
 }
