@@ -86,6 +86,28 @@
   }
 }
 
+.o-collapse-header-icon {
+  font-size: $font-lg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-right: $space-5;
+}
+
+.o-collapse-header-content {
+  flex: 1;
+  font-size: $font-base;
+  padding-right: $space-6;
+
+  p {
+    margin: 0;
+    font-size: $font-m;
+    color: $color-grey-500;
+    line-height: 1.5;
+  }
+}
+
 .o-collapse-summary {
   margin-left: $space-4;
   margin-right: $space-6;
