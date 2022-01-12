@@ -34,7 +34,7 @@ input[type=tel] {
   box-shadow: none;
   transition: $form-ctrl-transition;
 
-  &:focus:required:invalid:focus, // @override globa.css
+  &:focus:required:invalid:focus, // @override global.css
   &:focus {
     outline: 0 !important; // @override important
     box-shadow: $form-ctrl-focus-shadow !important; // @override important
