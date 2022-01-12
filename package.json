@@ -11,6 +11,7 @@
     "dev": "rollup -c -w",
     "prebuild": "rimraf dist",
     "build": "rollup -c",
+    "build:css": "sass src/styles/main.scss dist/maestro-ui.css && sass src/styles/main.scss dist/maestro-ui.min.css --style compressed",
     "test": "jest ./src",
     "lint": "eslint ./src"
   },
@@ -48,6 +49,7 @@
     "posthtml-extend": "^0.6.1",
     "posthtml-include": "^1.7.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.60.0"
+    "rollup": "^2.60.0",
+    "sass": "^1.47.0"
   }
 }
