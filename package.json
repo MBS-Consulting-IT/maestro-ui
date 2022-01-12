@@ -10,7 +10,8 @@
     "play": "parcel playground/index.html --port 1234 --dist-dir output --open",
     "dev": "rollup -c -w",
     "prebuild": "rimraf dist",
-    "build": "rollup -c",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "rollup -c",
     "build:css": "sass src/styles/main.scss dist/maestro-ui.css && sass src/styles/main.scss dist/maestro-ui.min.css --style compressed",
     "test": "jest ./src",
     "lint": "eslint ./src"
