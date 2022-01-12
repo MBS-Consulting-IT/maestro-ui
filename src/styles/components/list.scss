@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: max-content auto;
   row-gap: $space-4;
+  margin: 0;
 
   dt {
     grid-column-start: 1;
