@@ -3,13 +3,14 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   white-space: nowrap;
+  font-size: $font-m;
 }
 
 .o-breadcrumb-item {
   > a {
+    padding: $space-2 $space-1;
     color: $color-blue-500;
     user-select: none;
-    padding: $space-2 $space-1
   }
 
   &:not(.-active) {
@@ -23,8 +24,8 @@
 
   &.-active {
     > a {
-      color: $color-grey-700;
       font-weight: $font-medium;
+      color: $color-grey-700;
       cursor: default;
 
       &:focus,
