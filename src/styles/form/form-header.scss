@@ -1,0 +1,97 @@
+///
+/// Form Header
+///
+/// Modificadores:
+/// -lg: tamanho largo
+/// -xl: tamanho extra largo
+///
+/// @example markup
+/// <header class="o-form-header">
+///   <p class="o-form-header-eyebrow">Texto de Apoio</p>
+///   <i class="o-form-header-icon fas fa-link"></i>
+///   <h1 class="o-form-header-title">Sou um Título</h1>
+///   <p class="o-form-header-subtitle">Texto de apoio para o título</p>
+/// </header>
+///
+
+.o-form-header {
+  margin-bottom: $space-6;
+}
+
+.o-form-header-title {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  font-size: $font-xl;
+  font-weight: $font-bold;
+  color: $color-grey-800;
+}
+
+.o-form-header-subtitle {
+  margin: 0;
+  font-size: $font-m;
+  color: $color-grey-500;
+  line-height: 1.2;
+}
+
+.o-form-header-eyebrow {
+  margin: 0;
+  font-size: $font-m;
+  color: $color-grey-500;
+}
+
+.o-form-header-icon {
+  display: inline-block;
+  margin-right: $space-3;
+  font-size: $font-lg;
+  color: $color-blue-600;
+}
+
+/// Modificadores
+
+///
+/// Large
+///
+.o-form-header.-lg {
+  .o-form-header-title {
+    font-size: $font-3xl;
+    line-height: 1.3;
+  }
+
+  .o-form-header-subtitle {
+    font-size: $font-base;
+    line-height: 1.4;
+  }
+
+  .o-form-header-eyebrow {
+    font-size: $font-m;
+  }
+
+  .o-form-header-icon {
+    font-size: $font-2xl;
+  }
+}
+
+///
+/// Extra Large
+///
+.o-form-header.-xl {
+  .o-form-header-title {
+    font-size: $font-4xl;
+  }
+
+  .o-form-header-subtitle {
+    font-size: $font-base;
+    line-height: 1.4;
+    margin-top: $space-3;
+  }
+
+  .o-form-header-eyebrow {
+    font-size: $font-m;
+  }
+
+  .o-form-header-icon {
+    font-size: $font-2xl;
+  }
+}
