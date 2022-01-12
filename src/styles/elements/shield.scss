@@ -1,0 +1,39 @@
+$shiled-size-lg: 30px;
+$shiled-size-base: 26px;
+$shiled-size-sm: 22px;
+
+.o-shield {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: $shiled-size-base;
+  height: $shiled-size-base;
+  font-weight: $font-bold;
+  background-color: $color-blue-500;
+  color: #fff;
+  font-size: $font-base;
+  border-radius: $border-radius-base;
+
+  &.-lg {
+    width: $shiled-size-lg;
+    height: $shiled-size-lg;
+    font-size: $font-lg;
+    border-radius: 6px;
+  }
+
+  &.-sm {
+    width: $shiled-size-sm;
+    height: $shiled-size-sm;
+    font-size: $font-m;
+  }
+
+  &.-blue {
+    background-color: $color-blue-0;
+    color: $color-blue-500;
+  }
+
+  &.-gradient {
+    background: linear-gradient(135deg, $color-blue-400 0%, $color-blue-600 100%);
+    box-shadow: 0 0 2px 0 $color-blue-300;
+  }
+}

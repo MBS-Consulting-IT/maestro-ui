@@ -1,0 +1,71 @@
+$state-icon-width: 10px;
+
+.o-state {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 14px;
+
+  &.-md {
+    font-size: $font-m;
+    color: $color-grey-500;
+    font-weight: $font-normal;
+  }
+
+  &.-sm {
+    font-size: $font-sm;
+    color: $color-grey-400;
+    font-weight: $font-normal;
+  }
+
+  &.-success {
+    .o-state-icon {
+      color: $color-green-500;
+    }
+
+    .o-state-label {
+      color: $color-green-700;
+    }
+  }
+
+  &.-error {
+    .o-state-icon {
+      color: $color-red-500;
+    }
+
+    .o-state-label {
+      color: $color-red-700;
+    }
+  }
+
+  &.-loading {
+    .o-state-icon {
+      visibility: hidden;
+    }
+
+    &::after {
+      @include loader($color-grey-300);
+
+      left: 0;
+    }
+
+    &.-md::after,
+    &.-sm::after {
+      @include loader($color-grey-300, $state-icon-width);
+
+      left: 0;
+    }
+  }
+}
+
+.o-state-icon {
+  font-size: inherit;
+  color: $color-grey-400;
+  min-width: $state-icon-width;
+}
+
+.o-state-label {
+  font-size: inherit;
+  margin-left: $space-1;
+  color: $color-grey-400;
+}
