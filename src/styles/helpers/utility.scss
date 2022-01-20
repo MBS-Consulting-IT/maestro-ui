@@ -101,7 +101,7 @@ $text-directions: "left", "center", "right";
 $colors: "grey", "blue", "green", "red", "yellow";
 
 @each $color in $colors {
-  @for $i from 0 through 100 {
+  @for $i from 0 through 9 {
     $colorScale: $i * 100;
 
     .u-text-#{$color}-#{$colorScale} {
