@@ -8,7 +8,7 @@ export default {
       format: 'esm'
     },
     {
-      name: 'Utils',
+      name: 'Maestro',
       file: pkg.browser,
       format: 'umd'
     }
