@@ -1,7 +1,7 @@
 {
   "name": "maestro-ui",
   "description": "UI Component library for Orquestra BPMS",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "dist/maestro-ui.esm.js",
   "module": "dist/maestro-ui.esm.js",
   "browser": "dist/maestro-ui.js",
