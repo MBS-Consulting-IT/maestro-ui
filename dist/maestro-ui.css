@@ -1354,6 +1354,17 @@ input[type=tel]:focus {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 0 1px 2px rgba(23, 135, 232, 0.25) !important;
 }
 
+.btn-icon {
+  font-size: 11px;
+}
+
+[class*=btn-] span + .btn-icon,
+[class*=btn-] .btn-icon + span,
+.btn span + .btn-icon,
+.btn .btn-icon + span {
+  margin-left: 4px;
+}
+
 .o-chip {
   display: inline-flex;
   line-height: 26px;

@@ -176,3 +176,21 @@
     }
   }
 }
+
+///
+/// Buttons Icons
+///
+.btn-icon {
+  font-size: $font-sm;
+}
+
+// `[class*=btn-]` permite habilitar a configuração
+// para botões que não dependam da classes `.btn`,
+// utilizado para botões não default do Bootstrap.
+[class*=btn-],
+.btn {
+  span + .btn-icon,
+  .btn-icon + span {
+    margin-left: $space-1;
+  }
+}
