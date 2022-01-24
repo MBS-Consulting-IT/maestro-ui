@@ -1,0 +1,28 @@
+///
+/// Form Label
+///
+.o-form-label {
+  display: block;
+  color: $color-grey-700;
+  font-weight: $font-medium;
+  font-size: $font-base !important; // @override global.css
+
+  // O espaçamento é aplicado diretamente no control
+  // para evitar espaçamento no label quando não for
+  // seguide de um `o-form-ctrl`
+  & + .o-form-ctrl {
+    margin-top: 2px;
+  }
+}
+
+///
+/// Form Label - Help Text
+/// Texto complementar de ajuda
+///
+.o-form-label-help {
+  display: block;
+  font-size: $font-m;
+  color: $color-grey-500;
+  line-height: 1.2;
+  margin-bottom: $space-2;
+}

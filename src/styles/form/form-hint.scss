@@ -1,0 +1,16 @@
+.o-form-hint {
+  position: absolute;
+  display: block;
+  bottom: 10px;
+  font-size: $font-m;
+  color: $color-grey-500;
+  line-height: 1.2;
+
+  &.-success {
+    color: $color-green-600;
+  }
+
+  &.-error {
+    color: $color-red-500;
+  }
+}

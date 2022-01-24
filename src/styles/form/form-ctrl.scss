@@ -1,0 +1,97 @@
+///
+/// Form Control
+///
+.o-form-ctrl {
+
+  // Define a mesma altura dos inputs quando o campo estiver
+  // em formato somente leitura no Zeev BPMS
+  // Ex. <div xid="meuid">Valor do campo</div>
+  div[xid] {
+    display: inline-flex !important; // @todo avaliar important...
+    line-height: $form-ctrl-height;
+  }
+
+  // Oculta o `o-form-ctrl` quando não houver nada renderizado
+  // no container, previnindo exibir ícones ou elementos que
+  // possam acompanhar o `o-form-ctrl`
+  &:empty {
+    display: none;
+  }
+
+  // Adiciona espaçamento entre campos de formulário.
+  // O espaçamento é adicionado diretamente aos controles
+  // HTML para evitar "espaços fantasmas" quando não houver
+  // campos renderizados no `o-form-ctrl` por conta da
+  // configuração de visibilidade do campo no Zeev BPMS
+  &:not(.-gapless) {
+    input,
+    textarea,
+    select,
+    div[xid] {
+      margin-bottom: $space-8;
+    }
+  }
+
+  &.-gapless {
+    > * { margin-bottom: 0; }
+  }
+
+  ///
+  /// Validation States
+  ///
+  &.-success,
+  &.-error {
+    & + .o-form-hint:before {
+      font-family: $font-icons;
+      font-weight: 900;
+      font-size: $font-sm;
+      margin-right: 1px;
+    }
+  }
+
+  &.-success {
+    input,
+    textarea,
+    select {
+      border-color: $form-ctrl-success-border-color;
+
+      &:focus:required:invalid:focus, // @override global.css
+      &:focus {
+        box-shadow: $form-ctrl-success-focus-shadow !important; // @override important
+        border: $form-ctrl-success-border !important; // @override important
+      }
+    }
+
+    & + .o-form-hint {
+      color: $color-green-600;
+
+      &::before {
+        content: "\f058";
+        color: $color-green-500;
+      }
+    }
+  }
+
+  &.-error {
+    input,
+    textarea,
+    select {
+      border-color: $form-ctrl-error-border-color;
+
+      &:focus:required:invalid:focus, // @override global.css
+      &:focus {
+        box-shadow: $form-ctrl-error-focus-shadow !important; // @override important
+        border: $form-ctrl-error-border !important; // @override important
+      }
+    }
+
+    & + .o-form-hint {
+      color: $color-red-500;
+
+      &::before {
+        content: "\f06a";
+        color: $color-red-500;
+      }
+    }
+  }
+}
