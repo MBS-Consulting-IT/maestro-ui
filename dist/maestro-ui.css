@@ -1129,6 +1129,231 @@ input[type=tel]:focus {
   border: 1px solid #6bb2f0 !important;
 }
 
+.btn,
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-link,
+[id^=customBtn_] {
+  white-space: nowrap;
+  box-shadow: none !important;
+  background-image: none !important;
+  text-shadow: none !important;
+  transition: border linear 0.15s, box-shadow linear 0.15s;
+}
+.btn[disabled],
+.btn-primary[disabled],
+.btn-success[disabled],
+.btn-danger[disabled],
+.btn-warning[disabled],
+.btn-info[disabled],
+.btn-link[disabled],
+[id^=customBtn_][disabled] {
+  cursor: default;
+}
+.btn.-loading,
+.btn-primary.-loading,
+.btn-success.-loading,
+.btn-danger.-loading,
+.btn-warning.-loading,
+.btn-info.-loading,
+.btn-link.-loading,
+[id^=customBtn_].-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+.btn.-loading::after,
+.btn-primary.-loading::after,
+.btn-success.-loading::after,
+.btn-danger.-loading::after,
+.btn-warning.-loading::after,
+.btn-info.-loading::after,
+.btn-link.-loading::after,
+[id^=customBtn_].-loading::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: calc(50% - ( 12px / 2 ));
+  top: calc(50% - ( 12px / 2 ));
+  height: 12px;
+  width: 12px;
+  border: 2px solid #d4d5d9;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  animation: spin-around 0.5s infinite linear;
+}
+.btn.-loading.btn-primary::after, .btn.-loading.btn-success::after, .btn.-loading.btn-danger::after, .btn.-loading.btn-warning::after, .btn.-loading.btn-info::after,
+.btn-primary.-loading.btn-primary::after,
+.btn-primary.-loading.btn-success::after,
+.btn-primary.-loading.btn-danger::after,
+.btn-primary.-loading.btn-warning::after,
+.btn-primary.-loading.btn-info::after,
+.btn-success.-loading.btn-primary::after,
+.btn-success.-loading.btn-success::after,
+.btn-success.-loading.btn-danger::after,
+.btn-success.-loading.btn-warning::after,
+.btn-success.-loading.btn-info::after,
+.btn-danger.-loading.btn-primary::after,
+.btn-danger.-loading.btn-success::after,
+.btn-danger.-loading.btn-danger::after,
+.btn-danger.-loading.btn-warning::after,
+.btn-danger.-loading.btn-info::after,
+.btn-warning.-loading.btn-primary::after,
+.btn-warning.-loading.btn-success::after,
+.btn-warning.-loading.btn-danger::after,
+.btn-warning.-loading.btn-warning::after,
+.btn-warning.-loading.btn-info::after,
+.btn-info.-loading.btn-primary::after,
+.btn-info.-loading.btn-success::after,
+.btn-info.-loading.btn-danger::after,
+.btn-info.-loading.btn-warning::after,
+.btn-info.-loading.btn-info::after,
+.btn-link.-loading.btn-primary::after,
+.btn-link.-loading.btn-success::after,
+.btn-link.-loading.btn-danger::after,
+.btn-link.-loading.btn-warning::after,
+.btn-link.-loading.btn-info::after,
+[id^=customBtn_].-loading.btn-primary::after,
+[id^=customBtn_].-loading.btn-success::after,
+[id^=customBtn_].-loading.btn-danger::after,
+[id^=customBtn_].-loading.btn-warning::after,
+[id^=customBtn_].-loading.btn-info::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: calc(50% - ( 12px / 2 ));
+  top: calc(50% - ( 12px / 2 ));
+  height: 12px;
+  width: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  animation: spin-around 0.5s infinite linear;
+}
+.btn.-loading.btn-link::after,
+.btn-primary.-loading.btn-link::after,
+.btn-success.-loading.btn-link::after,
+.btn-danger.-loading.btn-link::after,
+.btn-warning.-loading.btn-link::after,
+.btn-info.-loading.btn-link::after,
+.btn-link.-loading.btn-link::after,
+[id^=customBtn_].-loading.btn-link::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: calc(50% - ( 12px / 2 ));
+  top: calc(50% - ( 12px / 2 ));
+  height: 12px;
+  width: 12px;
+  border: 2px solid #6bb2f0;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  animation: spin-around 0.5s infinite linear;
+}
+
+.btn:not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-link):not(.btn-radio) {
+  background-color: #fff !important;
+  border: 1px solid #d4d5d9 !important;
+}
+.btn:not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-link):not(.btn-radio):focus:required:invalid:focus, .btn:not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-link):not(.btn-radio):focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25) !important;
+  border: 1px solid #6bb2f0 !important;
+}
+.btn:not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-link):not(.btn-radio):hover:not(.-active) {
+  background-color: #f9fafb !important;
+}
+
+.btn-small,
+.btn-mini {
+  font-size: 12px !important;
+}
+
+[id^=customBtn_] {
+  background-color: #fff !important;
+  border: 1px solid #d4d5d9 !important;
+}
+[id^=customBtn_]:focus:required:invalid:focus, [id^=customBtn_]:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25) !important;
+  border: 1px solid #6bb2f0 !important;
+}
+
+.btn-primary:focus:required:invalid:focus, .btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(0, 109, 204, 0.25) !important;
+  border: 1px solid #0d5ea5 !important;
+}
+
+.btn-success:focus:required:invalid:focus, .btn-success:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(91, 183, 91, 0.25) !important;
+  border: 1px solid #36a136 !important;
+}
+
+.btn-danger:focus:required:invalid:focus, .btn-danger:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(218, 79, 73, 0.25) !important;
+  border: 1px solid #c13833 !important;
+}
+
+.btn-warning:focus:required:invalid:focus, .btn-warning:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(217, 124, 18, 0.25) !important;
+  border: 1px solid #d97c12 !important;
+}
+
+.btn-info:focus:required:invalid:focus, .btn-info:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(47, 150, 186, 0.25) !important;
+  border: 1px solid #2f96ba !important;
+}
+
+.btn-link {
+  border-radius: 4px;
+}
+.btn-link:focus:required:invalid:focus, .btn-link:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25) !important;
+  border: 1px solid #6bb2f0 !important;
+}
+.btn-link:hover, .btn-link:focus {
+  text-decoration: none;
+}
+
+.btn-radio {
+  background-color: #fff !important;
+  border: 1px solid #d4d5d9 !important;
+}
+.btn-radio:focus:required:invalid:focus, .btn-radio:focus {
+  outline: none;
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25) !important;
+  border: 1px solid #6bb2f0 !important;
+}
+.btn-radio:hover {
+  background-color: #f9fafb !important;
+  z-index: 0 !important;
+}
+.btn-radio:focus {
+  z-index: 2 !important;
+}
+.btn-radio.-active {
+  background-color: #f9fafb !important;
+}
+.btn-radio.-active:not(:focus) {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+}
+.btn-radio.-active:focus {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 0 1px 2px rgba(23, 135, 232, 0.25) !important;
+}
+
 .o-chip {
   display: inline-flex;
   line-height: 26px;
@@ -1785,6 +2010,143 @@ dd.o-list-subtitle {
 }
 .o-stack-item:only-child {
   border-radius: 4px;
+}
+
+.o-tab {
+  display: flex;
+  flex-flow: row wrap;
+}
+.o-tab.-center {
+  justify-content: center;
+}
+.o-tab.-end {
+  justify-content: flex-end;
+}
+.o-tab.-vertical {
+  flex-direction: column;
+}
+.o-tab.-justify .o-tab-item {
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+.o-tab.-underline {
+  border-bottom: 1px solid #e9eaec;
+}
+.o-tab.-underline .o-tab-item:not(.-disabled) {
+  color: #7d838c;
+}
+.o-tab.-underline .o-tab-item:not(.-disabled).-active {
+  color: #1787e8;
+  font-weight: 500;
+  box-shadow: inset 0 -2px #1787e8;
+  border-radius: 4px 4px 0 0;
+}
+.o-tab.-underline .o-tab-item:not(.-disabled).-active:focus {
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25), inset 0 -2px #1787e8;
+}
+.o-tab.-underline .o-tab-item:not(.-disabled):focus {
+  text-decoration: none;
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25);
+}
+.o-tab.-underline.-vertical {
+  border-bottom: none;
+  border-right: 1px solid #e9eaec;
+}
+.o-tab.-underline.-vertical .o-tab-item:not(.-disabled).-active {
+  box-shadow: inset -2px 0 #1787e8;
+  border-radius: 4px 0 0 4px;
+}
+.o-tab.-underline.-vertical .o-tab-item:not(.-disabled).-active:focus {
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25), inset -2px 0 #1787e8;
+}
+.o-tab.-border {
+  border-bottom: 1px solid #d4d5d9;
+}
+.o-tab.-border .o-tab-item:not(.-disabled) {
+  margin-bottom: -1px;
+  border-radius: 4px 4px 0 0;
+}
+.o-tab.-border .o-tab-item:not(.-disabled).-active {
+  color: #3f434a;
+  border: 1px solid #d4d5d9;
+  border-bottom: 1px solid #fff;
+}
+.o-tab.-border .o-tab-item:not(.-disabled):focus {
+  text-decoration: none;
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25);
+}
+.o-tab.-border.-vertical {
+  border-bottom: none;
+  border-right: 1px solid #e9eaec;
+}
+.o-tab.-border.-vertical .o-tab-item:not(.-disabled) {
+  margin-bottom: 0;
+  margin-right: -1px;
+  border-radius: 4px 0 0 4px;
+}
+.o-tab.-border.-vertical .o-tab-item:not(.-disabled).-active {
+  color: #3f434a;
+  border: 1px solid #d4d5d9;
+  border-right: 1px solid #fff;
+}
+.o-tab.-pill .o-tab-item {
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+.o-tab.-pill .o-tab-item + .o-tab-item {
+  margin-left: 4px;
+}
+.o-tab.-pill .o-tab-item:not(.-disabled) {
+  color: #7d838c;
+}
+.o-tab.-pill .o-tab-item:not(.-disabled):focus, .o-tab.-pill .o-tab-item:not(.-disabled):hover {
+  color: #3f434a;
+}
+.o-tab.-pill .o-tab-item:not(.-disabled):focus {
+  text-decoration: none;
+  box-shadow: 0 0 1px 2px rgba(23, 135, 232, 0.25);
+}
+.o-tab.-pill .o-tab-item.-active {
+  background-color: #f4f5f6;
+  font-weight: 500;
+  color: #3f434a;
+}
+.o-tab.-pill.-vertical .o-tab-item + .o-tab-item {
+  margin-left: 0;
+  margin-top: 4px;
+}
+.o-tab.-pill.-blue .o-tab-item:not(.-disabled):hover {
+  background-color: #f9fafb;
+}
+.o-tab.-pill.-blue .o-tab-item:not(.-disabled).-active {
+  background-color: #ebf6ff;
+  color: #006dcc;
+}
+
+.o-tab-item {
+  display: block;
+  padding: 10px 16px;
+  color: #1787e8;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.o-tab-item:hover, .o-tab-item.-active {
+  color: #0d528e;
+  outline: none;
+}
+.o-tab-item.-disabled {
+  cursor: default;
+  color: #d4d5d9;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.o-tab-panel.-padded {
+  padding: 20px;
+}
+.o-tab-panel:not(.-active) {
+  display: none;
 }
 
 .o-tile {
