@@ -1,7 +1,7 @@
 const PADDING_IN_PIXELS = 3;
 const BORDER_IN_PIXELS = 1;
 
-const NAME$1 = 'Segment';
+const NAME$3 = 'Segment';
 
 const FIELD$1 = {
   EDITABLE: 'select[xname]',
@@ -9,7 +9,7 @@ const FIELD$1 = {
   TEXT: 'div[xid]'
 };
 
-const CSS_CLASSES$1 = {
+const CSS_CLASSES$3 = {
   GROUP_CLASS: 'o-segments',
   LABEL_CLASS: 'o-segment',
   SELECTION_CLASS: 'o-segment-selection',
@@ -130,7 +130,7 @@ function resolveOrquestraField ({ container, editable, readonly, errorMsg }) {
 
 function Segment (reference, props = {}) {
   const container = resolveReference(reference, {
-    name: NAME$1,
+    name: NAME$3,
     root: props.root
   });
 
@@ -176,7 +176,7 @@ function SegmentFactory (container, props) {
 
   if (!instance.controller) return
 
-  container[`_${NAME$1}`] = instance;
+  container[`_${NAME$3}`] = instance;
 
   return instance
 
@@ -189,7 +189,7 @@ function SegmentFactory (container, props) {
       container: instance.container,
       editable: FIELD$1.EDITABLE,
       readonly: FIELD$1.READONLY,
-      errorMsg: `[${NAME$1}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
+      errorMsg: `[${NAME$3}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
     });
 
     if (!field) return
@@ -212,7 +212,7 @@ function SegmentFactory (container, props) {
     instance.controller.style.removeProperty('display');
     instance.segmentGroup.remove();
 
-    delete instance.container[`_${NAME$1}`];
+    delete instance.container[`_${NAME$3}`];
 
     for (const propertyName of Object.getOwnPropertyNames(instance)) {
       instance[propertyName] = null;
@@ -227,7 +227,7 @@ function SegmentFactory (container, props) {
       .map(option => {
         const segment = document.createElement('label');
 
-        segment.classList.add(CSS_CLASSES$1.LABEL_CLASS);
+        segment.classList.add(CSS_CLASSES$3.LABEL_CLASS);
         segment.dataset.option = option.value;
         segment.textContent = option.textContent;
 
@@ -236,8 +236,8 @@ function SegmentFactory (container, props) {
 
     segmentGroup.setAttribute('tabIndex', '0');
     segmentGroup.appendChild(segmentSelection);
-    segmentGroup.classList.add(CSS_CLASSES$1.GROUP_CLASS);
-    segmentSelection.classList.add(CSS_CLASSES$1.SELECTION_CLASS);
+    segmentGroup.classList.add(CSS_CLASSES$3.GROUP_CLASS);
+    segmentSelection.classList.add(CSS_CLASSES$3.SELECTION_CLASS);
     segments.forEach(segment => segmentGroup.appendChild(segment));
 
     // ⚠️ inserir `segmentGroup` ao DOM antes de calcular o tamanho
@@ -289,7 +289,7 @@ function SegmentFactory (container, props) {
 
     resetActiveClass();
 
-    segment.classList.add(CSS_CLASSES$1.ACTIVE_CLASS);
+    segment.classList.add(CSS_CLASSES$3.ACTIVE_CLASS);
     instance.controller.value = value;
     instance.controller.dispatchEvent(new Event('change'));
     state.value = value;
@@ -304,7 +304,7 @@ function SegmentFactory (container, props) {
 
     resetActiveClass();
 
-    segment.classList.add(CSS_CLASSES$1.ACTIVE_CLASS);
+    segment.classList.add(CSS_CLASSES$3.ACTIVE_CLASS);
     state.value = value;
 
     moveTo(instance.controller.selectedIndex);
@@ -344,16 +344,16 @@ function SegmentFactory (container, props) {
 
   function setEnabled () {
     state.disabled = false;
-    instance.segmentGroup.classList.remove(CSS_CLASSES$1.DISABLED_CLASS);
+    instance.segmentGroup.classList.remove(CSS_CLASSES$3.DISABLED_CLASS);
   }
 
   function setDisabled () {
     state.disabled = true;
-    instance.segmentGroup.classList.add(CSS_CLASSES$1.DISABLED_CLASS);
+    instance.segmentGroup.classList.add(CSS_CLASSES$3.DISABLED_CLASS);
   }
 
   function setTransition () {
-    instance.segmentSelection.classList.add(CSS_CLASSES$1.ANIMATED_CLASS);
+    instance.segmentSelection.classList.add(CSS_CLASSES$3.ANIMATED_CLASS);
   }
 
   function resizeSelection () {
@@ -374,7 +374,7 @@ function SegmentFactory (container, props) {
 
   function resetActiveClass () {
     instance.segments.forEach(segment =>
-      segment.classList.remove(CSS_CLASSES$1.ACTIVE_CLASS)
+      segment.classList.remove(CSS_CLASSES$3.ACTIVE_CLASS)
     );
   }
 
@@ -433,7 +433,7 @@ function SegmentFactory (container, props) {
   }
 }
 
-const NAME = 'Switch';
+const NAME$2 = 'Switch';
 
 const FIELD = {
   EDITABLE: 'select[xname]',
@@ -441,7 +441,7 @@ const FIELD = {
   TEXT: 'div[xid]'
 };
 
-const CSS_CLASSES = {
+const CSS_CLASSES$2 = {
   CTRL_CLASS: 'o-switch',
   INNER_CLASS: 'o-switch-inner',
   LABEL_CLASS: 'o-switch-label',
@@ -451,7 +451,7 @@ const CSS_CLASSES = {
 
 function Switch (reference, props = {}) {
   const container = resolveReference(reference, {
-    name: NAME,
+    name: NAME$2,
     root: props.root
   });
 
@@ -488,7 +488,7 @@ function SwitchFactory (container) {
 
   if (!instance.controller) return
 
-  container[`_${NAME}`] = instance;
+  container[`_${NAME$2}`] = instance;
 
   return instance
 
@@ -501,7 +501,7 @@ function SwitchFactory (container) {
       container: instance.container,
       editable: FIELD.EDITABLE,
       readonly: FIELD.READONLY,
-      errorMsg: `[${NAME}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
+      errorMsg: `[${NAME$2}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
     });
 
     if (!field) return
@@ -519,7 +519,7 @@ function SwitchFactory (container) {
     instance.controller.style.removeProperty('display');
     instance.switch.remove();
 
-    delete instance.container[`_${NAME}`];
+    delete instance.container[`_${NAME$2}`];
 
     for (const propertyName of Object.getOwnPropertyNames(instance)) {
       instance[propertyName] = null;
@@ -531,13 +531,13 @@ function SwitchFactory (container) {
     const switchInner = document.createElement('div');
     const switchLabel = document.createElement('label');
 
-    switchContainer.classList.add(CSS_CLASSES.CTRL_CLASS);
+    switchContainer.classList.add(CSS_CLASSES$2.CTRL_CLASS);
     switchContainer.setAttribute('tabIndex', '0');
-    switchInner.classList.add(CSS_CLASSES.INNER_CLASS);
-    switchLabel.classList.add(CSS_CLASSES.LABEL_CLASS);
+    switchInner.classList.add(CSS_CLASSES$2.INNER_CLASS);
+    switchLabel.classList.add(CSS_CLASSES$2.LABEL_CLASS);
     switchLabel.textContent = instance.controller[1].value;
 
-    if (state.active) switchContainer.classList.add(CSS_CLASSES.ACTIVE_CLASS);
+    if (state.active) switchContainer.classList.add(CSS_CLASSES$2.ACTIVE_CLASS);
 
     switchContainer.appendChild(switchInner);
     switchContainer.appendChild(switchLabel);
@@ -590,18 +590,18 @@ function SwitchFactory (container) {
 
   function setEnabled () {
     state.disabled = false;
-    instance.switch.classList.remove(CSS_CLASSES.DISABLED_CLASS);
+    instance.switch.classList.remove(CSS_CLASSES$2.DISABLED_CLASS);
   }
 
   function setDisabled () {
     state.disabled = true;
-    instance.switch.classList.add(CSS_CLASSES.DISABLED_CLASS);
+    instance.switch.classList.add(CSS_CLASSES$2.DISABLED_CLASS);
   }
 
   function toggleActiveClass () {
     state.active
-      ? instance.switch.classList.add(CSS_CLASSES.ACTIVE_CLASS)
-      : instance.switch.classList.remove(CSS_CLASSES.ACTIVE_CLASS);
+      ? instance.switch.classList.add(CSS_CLASSES$2.ACTIVE_CLASS)
+      : instance.switch.classList.remove(CSS_CLASSES$2.ACTIVE_CLASS);
   }
 
   function getFieldValueByState () {
@@ -644,9 +644,333 @@ function SwitchFactory (container) {
   }
 }
 
+const NAME$1 = 'Collapse';
+
+const CSS_CLASSES$1 = {
+  CONTAINER_CLASS: 'o-collapse',
+  ITEM_CLASS: 'o-collapse-item',
+  ITEM_HEADER_CLASS: 'o-collapse-header',
+  ACTIVE_CLASS: '-active',
+  DISABLED_CLASS: '-disabled'
+};
+
+function Collapse (reference, props = {}) {
+  const container = resolveReference(reference, {
+    name: NAME$1,
+    root: props.root
+  });
+
+  return resolveInstance({
+    reference: container,
+    factory: CollapseFactory
+  })
+}
+
+function CollapseFactory (container) {
+
+  /**
+   * @todo
+   * Implement accordion mode
+   * Implement custom events:
+   * `collapse:<event>`
+   * eg.
+   * collapse:show
+   * collapse:hide
+   * collapse:change
+   */
+
+  const instance = {
+    container,
+    items: [],
+    toggle,
+    show,
+    hide,
+    disable,
+    enable,
+    destroy
+  };
+
+  mount();
+
+  container[`_${NAME$1}`] = instance;
+
+  return instance
+
+  // ---------------------------------
+  // 🔒 Métodos Privados
+  // ---------------------------------
+
+  function mount () {
+    createCollapse();
+    addTriggers();
+  }
+
+  function unmount () {
+    instance.items.forEach(item => {
+      const itemHeader = getCollapseHeader(item);
+
+      if (!itemHeader) return
+
+      itemHeader.removeEventListener('click', onClick);
+      itemHeader.removeEventListener('click', onKeydown);
+    });
+
+    delete instance.container[`_${NAME$1}`];
+
+    for (const propertyName of Object.getOwnPropertyNames(instance)) {
+      instance[propertyName] = null;
+    }
+  }
+
+  function createCollapse () {
+    instance.items = [...instance.container.querySelectorAll(`.${CSS_CLASSES$1.ITEM_CLASS}`)];
+
+    instance.items.forEach(item => {
+      const itemHeader = getCollapseHeader(item);
+
+      if (!itemHeader) return
+
+      itemHeader.setAttribute('tabIndex', '0');
+    });
+  }
+
+  function addTriggers () {
+    instance.items.forEach(item => {
+      const itemHeader = getCollapseHeader(item);
+
+      if (!itemHeader) return
+
+      itemHeader.addEventListener('click', onClick);
+      itemHeader.addEventListener('keydown', onKeydown);
+    });
+  }
+
+  function onClick (event) {
+    const collapse = getCollapseContainer(event.srcElement);
+
+    if (isDisabled(collapse)) return
+
+    toggleCollapse(collapse);
+  }
+
+  function onKeydown (event) {
+    const collapse = getCollapseContainer(event.srcElement);
+
+    if (isDisabled(collapse) || event.code !== 'Space') return
+
+    event.preventDefault();
+
+    toggleCollapse(collapse);
+  }
+
+  function toggleCollapse (collapse) {
+    collapse.classList.toggle(CSS_CLASSES$1.ACTIVE_CLASS);
+
+    updateCurrent();
+  }
+
+  function showCollapse (collapse) {
+    collapse.classList.add(CSS_CLASSES$1.ACTIVE_CLASS);
+
+    updateCurrent();
+  }
+
+  function hideCollapse (collapse) {
+    collapse.classList.remove(CSS_CLASSES$1.ACTIVE_CLASS);
+
+    updateCurrent();
+  }
+
+  function setEnabled (collapse) {
+    collapse.classList.remove(CSS_CLASSES$1.DISABLED_CLASS);
+  }
+
+  function setDisabled (collapse) {
+    collapse.classList.add(CSS_CLASSES$1.DISABLED_CLASS);
+
+    hideCollapse(collapse);
+  }
+
+  function updateCurrent () {
+    instance.items.filter(item =>
+      isActive(item)
+    );
+  }
+
+  function isDisabled (collapse) {
+    return collapse.classList.contains(CSS_CLASSES$1.DISABLED_CLASS)
+  }
+
+  function isActive (collapse) {
+    return collapse.classList.contains(CSS_CLASSES$1.ACTIVE_CLASS)
+  }
+
+  function getCollapseContainer (innerElement) {
+    return innerElement.closest(`.${CSS_CLASSES$1.ITEM_CLASS}`)
+  }
+
+  function getCollapseHeader (collapse) {
+    return collapse.querySelector(`.${CSS_CLASSES$1.ITEM_HEADER_CLASS}`)
+  }
+
+  function getItemByIndex (index) {
+    const item = instance.items[index];
+
+    if (!item) console.warn(`[${NAME$1}]: item não encontrado para o índice ${index}`);
+
+    return item
+  }
+
+  function resolveAction (index, callback) {
+    const item = getItemByIndex(index);
+
+    if (!item) return
+
+    callback(item);
+  }
+
+  // ---------------------------------
+  // 🔑 Métodos Públicos
+  // ---------------------------------
+
+  function toggle (index) {
+    resolveAction(index, toggleCollapse);
+  }
+
+  function show (index) {
+    resolveAction(index, showCollapse);
+  }
+
+  function hide (index) {
+    resolveAction(index, hideCollapse);
+  }
+
+  function disable (index) {
+    resolveAction(index, setDisabled);
+  }
+
+  function enable (index) {
+    resolveAction(index, setEnabled);
+  }
+
+  function destroy () {
+    unmount();
+  }
+}
+
+const NAME = 'Toggler';
+
+const CSS_CLASSES = {
+  OPEN_CLASS: '-open'
+};
+
+function Toggler (reference, props = {}) {
+  const trigger = resolveReference(reference, {
+    name: NAME,
+    root: props.root
+  });
+
+  return resolveInstance({
+    props,
+    reference: trigger,
+    factory: TogglerFactory
+  })
+}
+
+function TogglerFactory (trigger, props) {
+  /**
+   * @todo
+   * Implement custom events:
+   * `toggler:<event>`
+   * eg.
+   * toggler:show
+   * toggler:hide
+   * toggler:change
+   */
+
+  const instance = {
+    trigger,
+    content: null,
+    toggle,
+    show,
+    hide,
+    destroy
+  };
+
+  mount();
+
+  trigger[`_${NAME}`] = instance;
+
+  return instance
+
+  // ---------------------------------
+  // 🔒 Métodos Privados
+  // ---------------------------------
+
+  function mount () {
+    instance.content = props.content;
+
+    createToggler();
+    addTriggers();
+  }
+
+  function unmount () {
+    instance.trigger.removeEventListener('click', onClick);
+    instance.trigger.removeEventListener('click', onKeydown);
+
+    delete instance.trigger[`_${NAME}`];
+
+    for (const propertyName of Object.getOwnPropertyNames(instance)) {
+      instance[propertyName] = null;
+    }
+  }
+
+  function createToggler () {
+    instance.trigger.setAttribute('tabIndex', '0');
+  }
+
+  function addTriggers () {
+    instance.trigger.addEventListener('click', onClick);
+    instance.trigger.addEventListener('keydown', onKeydown);
+  }
+
+  function onClick () {
+    toggle();
+  }
+
+  function onKeydown (event) {
+    if (event.code !== 'Space') return
+
+    event.preventDefault();
+    toggle();
+  }
+
+  // ---------------------------------
+  // 🔑 Métodos Públicos
+  // ---------------------------------
+
+  function toggle () {
+    instance.content.classList.toggle(CSS_CLASSES.OPEN_CLASS);
+  }
+
+  function show () {
+    instance.content.classList.add(CSS_CLASSES.OPEN_CLASS);
+  }
+
+  function hide () {
+    instance.content.classList.remove(CSS_CLASSES.OPEN_CLASS);
+  }
+
+  function destroy () {
+    unmount();
+  }
+}
+
 var main = {
   Segment,
-  Switch
+  Switch,
+  Collapse,
+  Toggler
 };
 
 export { main as default };
