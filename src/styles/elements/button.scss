@@ -1,0 +1,178 @@
+///
+/// Buttons
+/// Extensão de estilos a partir dos botões do Bootstrap
+///
+
+/// Focus Ring
+@mixin ctrl-focus-ring (
+  $color: $form-ctrl-focus-border-color,
+  $shadow: $color-blue-500
+) {
+  &:focus:required:invalid:focus,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 1px 2px rgba($shadow, 0.25) !important;
+    border: 1px solid $color !important;
+  }
+}
+
+/// Redefine os estilos para o padrão flat
+.btn,
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-link,
+[id^=customBtn_] {
+  white-space: nowrap;
+  box-shadow: none !important;
+  background-image: none !important;
+  text-shadow: none !important;
+  transition: $form-ctrl-transition;
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  &.-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+    user-select: none;
+
+    &::after {
+      @include loader(
+        $form-ctrl-border-color
+      );
+    }
+
+    &.btn-primary,
+    &.btn-success,
+    &.btn-danger,
+    &.btn-warning,
+    &.btn-info {
+      &::after {
+        @include loader(
+          rgba(255, 255, 255, 0.75)
+        );
+      }
+    }
+
+    &.btn-link {
+      &::after {
+        @include loader(
+          $color-blue-400
+        );
+      }
+    }
+  }
+}
+
+/// Refine os estilos do botão default
+.btn {
+  &:not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-link):not(.btn-radio) {
+    background-color: #fff !important;
+    border: $form-ctrl-border !important;
+
+    @include ctrl-focus-ring();
+
+    &:hover:not(.-active) {
+      background-color: $color-grey-0 !important;
+    }
+  }
+}
+
+.btn-small,
+.btn-mini {
+  font-size: $font-m !important; // override global.css
+}
+
+// Redefine os estilos dos botões customizados do Zeev BPMS
+[id^=customBtn_] {
+  background-color: #fff !important;
+  border: $form-ctrl-border !important;
+
+  @include ctrl-focus-ring();
+}
+
+/// Ajusta estilos dos botões com modificadores
+.btn-primary {
+  @include ctrl-focus-ring(
+    $color-blue-700,
+    $color-blue-600
+  );
+}
+
+.btn-success {
+  @include ctrl-focus-ring(
+    $color-green-700,
+    $color-green-600
+  );
+}
+
+.btn-danger {
+  @include ctrl-focus-ring(
+    $color-red-700,
+    $color-red-600
+  );
+}
+
+.btn-warning {
+  @include ctrl-focus-ring(
+    $color-yellow-700,
+    $color-yellow-700
+  );
+}
+
+.btn-info {
+  @include ctrl-focus-ring(
+    #2f96ba,
+    #2f96ba
+  );
+}
+
+.btn-link {
+  @include ctrl-focus-ring();
+
+  border-radius: $form-ctrl-radius;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+///
+/// Buttons Radio
+/// Utilizado em conjunto com o container `btn-group`
+///
+.btn-radio {
+  background-color: #fff !important;
+  border: $form-ctrl-border !important;
+
+  @include ctrl-focus-ring();
+
+  &:hover {
+    background-color: $color-grey-0 !important;
+    z-index: 0 !important;
+  }
+
+  &:focus {
+    z-index: 2 !important;
+  }
+
+  &.-active {
+    background-color: $color-grey-0 !important;
+
+    &:not(:focus) {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    &:focus {
+      box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.15),
+        $form-ctrl-focus-shadow !important;
+    }
+  }
+}
