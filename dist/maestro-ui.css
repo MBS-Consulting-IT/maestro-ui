@@ -1215,6 +1215,111 @@ input[type=tel]:focus {
   margin-left: 4px;
 }
 
+.o-input {
+  display: inline-flex;
+  position: relative;
+}
+.o-input input:not(:first-child) {
+  padding-left: 30px;
+}
+.o-input input:not(:last-child) {
+  padding-right: 30px;
+}
+.o-input > .o-input-icon:first-child {
+  left: 0;
+}
+.o-input > .o-input-icon:last-child {
+  right: 0;
+}
+.o-input.-loading::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: calc(50% - ( 12px / 2 ));
+  top: calc(50% - ( 12px / 2 ));
+  height: 12px;
+  width: 12px;
+  border: 2px solid #d4d5d9;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  animation: spin-around 0.5s infinite linear;
+  left: initial;
+  top: 10px;
+  right: 10px;
+}
+.o-input.-loading input {
+  padding-right: 30px;
+}
+.o-input.-loading .o-input-icon:last-child {
+  display: none;
+}
+
+.o-input-icon {
+  position: absolute;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  font-size: 13.33px;
+  color: #a8abb2;
+  z-index: 2;
+}
+
+.o-input-group {
+  display: flex;
+}
+.o-input-group em {
+  display: none;
+}
+.o-input-group input {
+  position: relative;
+}
+.o-input-group input:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 1px solid transparent;
+}
+.o-input-group input:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 1px solid transparent;
+}
+.o-input-group input:focus {
+  z-index: 2;
+}
+.o-input-group.-center input {
+  text-align: center;
+}
+.o-input-group > .o-input-addon:first-child {
+  border-left: 1px solid #d4d5d9;
+  border-radius: 4px 0 0 4px;
+}
+.o-input-group > .o-input-addon:last-child {
+  border-right: 1px solid #d4d5d9;
+  border-radius: 0 4px 4px 0;
+}
+
+.o-input-addon {
+  margin-left: -2px;
+  margin-right: -2px;
+  padding: 0 6px;
+  height: 30px;
+  background-color: #fff;
+  font-size: 13.33px;
+  line-height: 28px;
+  text-align: center;
+  white-space: nowrap;
+  color: #a8abb2;
+  border-top: 1px solid #d4d5d9;
+  border-bottom: 1px solid #d4d5d9;
+  z-index: 1;
+}
+.o-input-addon.-colored {
+  background-color: #f9fafb;
+  color: #7d838c;
+  border: 1px solid #d4d5d9;
+}
+
 .o-shield {
   display: inline-flex;
   justify-content: center;
@@ -1722,7 +1827,7 @@ dd.o-list-subtitle {
 .o-tile-label {
   line-height: 1;
   font-size: 12px !important;
-  color: #a8abb2;
+  color: #7d838c;
   margin-bottom: 6px;
 }
 
@@ -1832,6 +1937,102 @@ dd.o-list-subtitle {
 }
 .o-form-header.-xl .o-form-header-icon {
   font-size: 20px;
+}
+
+.o-form-label {
+  display: block;
+  color: #3f434a;
+  font-weight: 500;
+  font-size: 14px !important;
+}
+.o-form-label + .o-form-ctrl {
+  margin-top: 2px;
+}
+
+.o-form-label-help {
+  display: block;
+  font-size: 12px;
+  color: #7d838c;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.o-form-ctrl div[xid] {
+  display: inline-flex !important;
+  line-height: 30px;
+}
+.o-form-ctrl:empty {
+  display: none;
+}
+.o-form-ctrl:not(.-gapless) input,
+.o-form-ctrl:not(.-gapless) textarea,
+.o-form-ctrl:not(.-gapless) select,
+.o-form-ctrl:not(.-gapless) div[xid] {
+  margin-bottom: 28px;
+}
+.o-form-ctrl.-gapless > * {
+  margin-bottom: 0;
+}
+.o-form-ctrl.-success + .o-form-hint:before, .o-form-ctrl.-error + .o-form-hint:before {
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  margin-right: 1px;
+}
+.o-form-ctrl.-success input,
+.o-form-ctrl.-success textarea,
+.o-form-ctrl.-success select {
+  border-color: #7dd47d;
+}
+.o-form-ctrl.-success input:focus:required:invalid:focus, .o-form-ctrl.-success input:focus,
+.o-form-ctrl.-success textarea:focus:required:invalid:focus,
+.o-form-ctrl.-success textarea:focus,
+.o-form-ctrl.-success select:focus:required:invalid:focus,
+.o-form-ctrl.-success select:focus {
+  box-shadow: 0 0 1px 2px rgba(91, 183, 91, 0.25) !important;
+  border: 1px solid #7dd47d !important;
+}
+.o-form-ctrl.-success + .o-form-hint {
+  color: #5bb75b;
+}
+.o-form-ctrl.-success + .o-form-hint::before {
+  content: "\f058";
+  color: #6c6;
+}
+.o-form-ctrl.-error input,
+.o-form-ctrl.-error textarea,
+.o-form-ctrl.-error select {
+  border-color: #f87571;
+}
+.o-form-ctrl.-error input:focus:required:invalid:focus, .o-form-ctrl.-error input:focus,
+.o-form-ctrl.-error textarea:focus:required:invalid:focus,
+.o-form-ctrl.-error textarea:focus,
+.o-form-ctrl.-error select:focus:required:invalid:focus,
+.o-form-ctrl.-error select:focus {
+  box-shadow: 0 0 1px 2px rgba(218, 79, 73, 0.25) !important;
+  border: 1px solid #f87571 !important;
+}
+.o-form-ctrl.-error + .o-form-hint {
+  color: #ed4c45;
+}
+.o-form-ctrl.-error + .o-form-hint::before {
+  content: "\f06a";
+  color: #ed4c45;
+}
+
+.o-form-hint {
+  position: absolute;
+  display: block;
+  bottom: 10px;
+  font-size: 12px;
+  color: #7d838c;
+  line-height: 1.2;
+}
+.o-form-hint.-success {
+  color: #5bb75b;
+}
+.o-form-hint.-error {
+  color: #ed4c45;
 }
 
 /*# sourceMappingURL=maestro-ui.css.map */
