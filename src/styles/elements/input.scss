@@ -15,6 +15,10 @@
     }
   }
 
+  &.-center {
+    input { text-align: center; }
+  }
+
   > .o-input-icon {
     &:first-child {
       left: 0;
@@ -103,6 +107,54 @@
       border-radius: 0 $form-ctrl-radius $form-ctrl-radius 0;
     }
   }
+
+  // Necessário colocar os inputs em containers visto
+  // que o Zeev adiciona tags `em` ao final dos inputs
+  // impossibilitando a abordagem apenas com pseudos
+  .o-input {
+    input {
+      padding: 4px 6px;
+      border: $form-ctrl-border;
+      border-radius: $form-ctrl-radius;
+    }
+
+    &:not(:first-child) {
+      input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: 1px solid transparent;
+      }
+    }
+
+    &:not(:last-child) {
+      input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 1px solid transparent;
+      }
+    }
+  }
+
+  ///
+  /// Mensagens de Validação
+  ///
+  & + .o-form-hint {
+    position: relative;
+    top: -24px;
+    bottom: 0;
+    height: 0;
+  }
+
+  ///
+  /// Validation States
+  ///
+  &.-success {
+    @include ctrl-success;
+  }
+
+  &.-error {
+    @include ctrl-error;
+  }
 }
 
 ///
@@ -113,6 +165,7 @@
   margin-right: -2px;
   padding: 0 $space-1 + 2px;
   height: $form-ctrl-height;
+  min-width: 24px;
   background-color: #fff;
   font-size: $form-ctrl-font-size;
   line-height: 28px;
