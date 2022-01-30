@@ -1,6 +1,6 @@
 {
   "name": "maestro-ui",
-  "description": "UI Component library for Orquestra BPMS",
+  "description": "UI Component library for Zeev BPMS",
   "version": "0.7.0",
   "main": "dist/maestro-ui.esm.js",
   "module": "dist/maestro-ui.esm.js",
@@ -8,8 +8,11 @@
   "license": "LGPL-3.0",
   "author": "Pedro Bernardo <pedrovbernardo@gmail.com>",
   "scripts": {
-    "play": "parcel playground/index.html --port 1234 --dist-dir output --open",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
     "dev": "rollup -c -w",
+    "dev:css": "sass src/styles/main.scss dist/maestro-ui.css --watch",
     "prebuild": "rimraf dist",
     "build": "npm run build:js && npm run build:css",
     "build:js": "rollup -c",
@@ -44,14 +47,11 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-vue": "^8.3.0",
     "jest": "^27.3.1",
-    "parcel": "^2.0.1",
-    "posthtml": "^0.16.5",
-    "posthtml-expressions": "^1.9.0",
-    "posthtml-extend": "^0.6.1",
-    "posthtml-include": "^1.7.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.60.0",
-    "sass": "^1.47.0"
+    "sass": "^1.47.0",
+    "vitepress": "^0.21.6"
   }
 }
