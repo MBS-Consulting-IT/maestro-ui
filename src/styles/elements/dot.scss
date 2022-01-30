@@ -1,0 +1,67 @@
+$dot-size: 6px;
+
+.o-dot {
+  position: relative;
+  display: inline-block;
+  padding-left: 18px;
+  font-size: $font-m;
+  font-weight: normal;
+  color: $color-grey-700;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 6px;
+    display: inline-block;
+    width: $dot-size;
+    height: $dot-size;
+    margin: 0 $space-1;
+    border-radius: 50%;
+    background-color: $color-grey-500;
+  }
+
+  &.-pulse {
+    &::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 9px;
+      display: inline-block;
+      width: $dot-size + 12px;
+      height: $dot-size + 12px;
+      margin: 0 $space-2;
+      border-radius: 50%;
+      background-color: $color-grey-500;
+      animation: bounce-translate-middle 1s 0s ease-in-out infinite;
+    }
+  }
+
+  &.-yellow {
+    &::before,
+    &::after {
+      background-color: $color-yellow-600;
+    }
+  }
+
+  &.-red {
+    &::before,
+    &::after {
+      background-color: $color-red-500;
+    }
+  }
+
+  &.-green {
+    &::before,
+    &::after {
+      background-color: $color-green-500;
+    }
+  }
+
+  &.-blue {
+    &::before,
+    &::after {
+      background-color: $color-blue-500;
+    }
+  }
+}
