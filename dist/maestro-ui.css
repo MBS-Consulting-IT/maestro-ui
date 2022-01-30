@@ -663,6 +663,14 @@
   line-height: 1.6;
 }
 
+.u-text-nowrap {
+  white-space: nowrap;
+}
+
+.u-cursor-pointer {
+  cursor: pointer;
+}
+
 *,
 *::after,
 *::before {
@@ -803,10 +811,6 @@ input[type=text][mask=date] {
 .datepicker table td,
 .datepicker table th {
   background-color: transparent !important;
-}
-.datepicker table td .year,
-.datepicker table td .month, .datepicker table td.day {
-  width: 30px;
 }
 .datepicker table td .year.old, .datepicker table td .year.new,
 .datepicker table td .month.old,
