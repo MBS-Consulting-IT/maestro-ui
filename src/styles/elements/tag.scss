@@ -1,18 +1,20 @@
+///
+/// Tag
+///
 .o-tag {
   position: relative;
-  top: -1px; // optical aligment
+  top: -1px; // alinhamento óptico
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: $space-1 $space-2;
   background-color: $color-grey-100;
   border-radius: $border-radius-base;
-  font-size: $font-sm;
+  font-size: $font-m;
   font-weight: $font-medium;
   color: $color-grey-500;
   line-height: 1.2;
 
-  &.-success,
   &.-green {
     background-color: $color-green-0;
     color: $color-green-700;
@@ -22,7 +24,6 @@
     }
   }
 
-  &.-danger,
   &.-red {
     background-color: $color-red-0;
     color: $color-red-700;
@@ -32,7 +33,6 @@
     }
   }
 
-  &.-warning,
   &.-yellow {
     background-color: $color-yellow-0;
     color: $color-yellow-700;
@@ -42,7 +42,6 @@
     }
   }
 
-  &.-info,
   &.-blue {
     background-color: $color-blue-0;
     color: $color-blue-700;
@@ -51,8 +50,81 @@
       color: $color-blue-500;
     }
   }
+
+  &.-inverted {
+    background-color: $color-grey-500;
+    color: $color-grey-0;
+
+    .tag-icon {
+      color: $color-grey-0;
+    }
+
+    &.-green {
+      background-color: $color-green-600;
+      color: $color-green-0;
+
+      .tag-icon {
+        color: $color-green-0;
+      }
+    }
+
+    &.-red {
+      background-color: $color-red-600;
+      color: $color-red-0;
+
+      .tag-icon {
+        color: $color-red-0;
+      }
+    }
+
+    &.-yellow {
+      background-color: $color-yellow-600;
+      color: $color-yellow-0;
+
+      .tag-icon {
+        color: $color-yellow-0;
+      }
+    }
+
+    &.-blue {
+      background-color: $color-blue-600;
+      color: $color-blue-0;
+
+      .tag-icon {
+        color: $color-blue-0;
+      }
+    }
+  }
+
+  &.-outline {
+    background-color: transparent;
+    border: 1px solid $color-grey-200;
+    font-weight: normal;
+  }
+
+  ///
+  /// Dot
+  /// Combinando o componente Tag com Dot
+  ///
+  .o-dot {
+    color: $color-grey-500;
+    margin-left: -#{$space-2};
+
+    &::before {
+      top: 8px;
+    }
+
+    &::after {
+      top: 5px;
+    }
+
+
+  }
 }
 
+///
+/// Tag Icon
+///
 .o-tag-icon {
   font-size: $font-xs;
   margin-right: 4px;
