@@ -138,6 +138,11 @@ $colors: "grey", "blue", "green", "red", "yellow";
 }
 
 // Text Wrap
-.u-no-wrap{
+.u-text-nowrap {
   white-space: nowrap;
+}
+
+// Cursor
+.u-cursor-pointer {
+  cursor: pointer;
 }
