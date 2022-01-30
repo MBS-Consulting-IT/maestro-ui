@@ -5,11 +5,15 @@ module.exports = {
     jquery: true,
     jest: true
   },
-  extends: ['standard'],
+  extends: [
+    'plugin:vue/essential',
+    'standard'
+  ],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module'
   },
+  plugins: ['vue'],
   ignorePatterns: ['*.html'],
   rules: {}
 }
