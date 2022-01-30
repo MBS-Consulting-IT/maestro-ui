@@ -6,6 +6,12 @@
   color: $color-grey-500;
   line-height: 1.2;
 
+  &::before {
+    font-family: $font-icons;
+    font-weight: $font-bold;
+    margin-right: $space-1;
+  }
+
   &.-success {
     color: $color-green-600;
   }
