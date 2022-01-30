@@ -50,48 +50,10 @@
   }
 
   &.-success {
-    input,
-    textarea,
-    select {
-      border-color: $form-ctrl-success-border-color;
-
-      &:focus:required:invalid:focus, // @override global.css
-      &:focus {
-        box-shadow: $form-ctrl-success-focus-shadow !important; // @override important
-        border: $form-ctrl-success-border !important; // @override important
-      }
-    }
-
-    & + .o-form-hint {
-      color: $color-green-600;
-
-      &::before {
-        content: "\f058";
-        color: $color-green-500;
-      }
-    }
+    @include ctrl-success;
   }
 
   &.-error {
-    input,
-    textarea,
-    select {
-      border-color: $form-ctrl-error-border-color;
-
-      &:focus:required:invalid:focus, // @override global.css
-      &:focus {
-        box-shadow: $form-ctrl-error-focus-shadow !important; // @override important
-        border: $form-ctrl-error-border !important; // @override important
-      }
-    }
-
-    & + .o-form-hint {
-      color: $color-red-500;
-
-      &::before {
-        content: "\f06a";
-        color: $color-red-500;
-      }
-    }
+    @include ctrl-error;
   }
 }
