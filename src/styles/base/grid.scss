@@ -23,17 +23,6 @@ $grid-gaps: (
     flex: none;
   }
 
-  &.-gapless {
-    row-gap: 0;
-    margin-left: 0;
-    margin-right: 0;
-
-    .o-column {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-
   &.-nowrap {
     flex-wrap: nowrap;
   }
@@ -67,6 +56,17 @@ $grid-gaps: (
         padding-left: #{math.div($gap, 2)};
         padding-right: #{math.div($gap, 2)};
       }
+    }
+  }
+
+  &.-gapless {
+    row-gap: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    .o-column {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }
