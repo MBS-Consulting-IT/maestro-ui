@@ -4,11 +4,11 @@
 .o-form-ctrl {
 
   // Define a mesma altura dos inputs quando o campo estiver
-  // em formato somente leitura no Zeev BPMS
+  // em formato somente leitura no Zeev BPMS ou em campos
+  // anexo com arquivo já definido
   // Ex. <div xid="meuid">Valor do campo</div>
   div[xid] {
-    display: inline-flex !important; // @todo avaliar important...
-    line-height: $form-ctrl-height;
+    display: inline-flex;
   }
 
   // Oculta o `o-form-ctrl` quando não houver nada renderizado
@@ -27,13 +27,24 @@
     input,
     textarea,
     select,
-    div[xid] {
+    .o-radio-cards {
       margin-bottom: $space-8;
     }
   }
 
   &.-gapless {
     > * { margin-bottom: 0; }
+  }
+
+  &.-full {
+    min-width: 100%;
+
+    select,
+    textarea,
+    input[type=text],
+    .o-input {
+      width: 100% !important;
+    }
   }
 
   ///
