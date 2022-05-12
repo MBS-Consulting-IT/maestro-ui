@@ -19,7 +19,8 @@
 }
 
 .o-form-header-title {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin: 0;
   padding: 0;
   line-height: 1.6;
