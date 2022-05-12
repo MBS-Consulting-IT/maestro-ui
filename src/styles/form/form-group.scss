@@ -1,7 +1,238 @@
+$form-group-ctrl-container-height: 52px;
+$form-group-ctrl-paddint-top: 23px;
+$form-group-ctrl-padding-x: 8px;
+$form-group-gap: $space-8;
+
 .o-form-group {
   position: relative;
 
   &.-row {
     display: flex;
   }
+
+  &.-float {
+    margin-bottom: $form-group-gap;
+
+    .o-form-label {
+      position: absolute;
+      top: 6px;
+      left: $form-group-ctrl-padding-x;
+      font-size: $font-sm !important; // @override global.css;
+      font-weight: $font-medium;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: calc(100% - #{$form-group-ctrl-padding-x * 2});
+      z-index: 2;
+    }
+
+    .o-form-ctrl {
+      input,
+      select {
+        height: $form-group-ctrl-container-height;
+        padding-top: $form-group-ctrl-paddint-top;
+      }
+
+      input,
+      select,
+      textarea,
+      div[xid] {
+        padding-top: $form-group-ctrl-paddint-top;
+      }
+
+      input,
+      textarea,
+      div[xid] {
+        padding-left: $form-group-ctrl-padding-x;
+      }
+
+      select {
+        padding-left: 3px;
+      }
+
+      img.loading {
+        top: 30px;
+      }
+    }
+  }
+}
+
+.o-form-group-row {
+  display: flex;
+
+  //
+  // Posiciona todas as linhas subsequentes 1px para cima
+  // ocultando a borda inferior dos inputs, deixando que
+  // esta fique com a aparência de 1px apenas.
+  //
+  & + & {
+    margin-top: -1px;
+  }
+
+  //
+  // Remove o espaçamento após elementos de formulário
+  // dentro de um `o-form-ctrl` e ajusta o tamanho
+  //
+  .o-form-ctrl {
+    width: 100% !important;
+
+    select,
+    input,
+    textarea {
+      position: relative;
+      margin-bottom: 0 !important;
+      width: 100% !important;
+
+      //
+      // Faz com que o elementos em foco fique com sua
+      // borda sobre os outros elementos
+      //
+      &:focus {
+        z-index: 1;
+      }
+    }
+  }
+
+  //
+  // Remove o espaçamento default entre `o-form-label`
+  // e o `o-form-ctrl`
+  //
+  .o-form-label + .o-form-ctrl {
+    margin-top: 0;
+  }
+
+  .o-form-group-col {
+    //
+    // Posiciona todas as colunas da linha 1px para esquerda
+    // ocultando a borda lateral dos inputs, deixando que
+    // esta fique com a aparência de 1px apenas.
+    //
+    &:not(:first-of-type) {
+      select,
+      input,
+      textarea {
+        margin-left: -1px;
+      }
+    }
+
+    //
+    // Remove o border-radius de elementos de formulário
+    // que estejam posicionados em colunas intermediárias
+    //
+    &:not(:first-of-type),
+    &:not(:last-of-type) {
+      > select,
+      > input,
+      > textarea {
+        border-radius: 0;
+      }
+    }
+  }
+
+  //
+  // Configura o border-radius em linhas intermediárias
+  //
+  &:not(:first-child),
+  &:not(:last-child) {
+    .o-form-group-col {
+      select,
+      input,
+      textarea {
+        border-radius: 0;
+      }
+    }
+  }
+
+  //
+  // Configura o border-radius na 1ª linha
+  //
+  &:first-child {
+    .o-form-group-col {
+      &:first-of-type {
+        select,
+        input,
+        textarea {
+          border-radius: $form-ctrl-radius 0 0 0;
+        }
+      }
+
+      &:last-of-type {
+        select,
+        input,
+        textarea {
+          border-radius: 0 $form-ctrl-radius 0 0;
+        }
+      }
+
+      &:only-child {
+        select,
+        input,
+        textarea {
+          border-radius: $form-ctrl-radius $form-ctrl-radius 0 0;
+        }
+      }
+    }
+  }
+
+  //
+  // Configura o border-radius na última linha
+  //
+  &:last-child,
+  &.-last {
+    .o-form-group-col {
+      &:first-of-type {
+        select,
+        input,
+        textarea {
+          border-radius: 0 0 0 $form-ctrl-radius;
+        }
+      }
+
+      &:last-of-type {
+        select,
+        input,
+        textarea {
+          border-radius: 0 0 $form-ctrl-radius 0;
+        }
+      }
+
+      &:only-child {
+        select,
+        input,
+        textarea {
+          border-radius: 0 0 $form-ctrl-radius $form-ctrl-radius;
+        }
+      }
+    }
+  }
+
+  //
+  // Configura o border-radius em linhas únicas
+  //
+  &:only-child {
+    .o-form-group-col {
+      &:first-of-type {
+        select,
+        input,
+        textarea {
+          border-radius: $form-ctrl-radius 0 0 $form-ctrl-radius;
+        }
+      }
+
+      &:not(:first-of-type) {
+        select,
+        input,
+        textarea {
+          border-radius: 0 $form-ctrl-radius $form-ctrl-radius 0;
+        }
+      }
+    }
+  }
+}
+
+.o-form-group-col {
+  position: relative;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
