@@ -1,3 +1,9 @@
 .o-form-container {
   padding: 0 $space-13 0 $space-13;
+
+  &.-fluid {
+    max-width: $form-max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
