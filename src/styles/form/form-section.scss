@@ -2,12 +2,10 @@
   position: relative;
   padding-bottom: $space-9;
 
-  &:not(:last-of-type) {
-    border-bottom: $border-grey-light;
-  }
-
-  &.-borderless {
-    border-bottom: none;
+  &.-bordered {
+    &:not(:last-of-type) {
+      border-bottom: $border-grey-light;
+    }
   }
 
   &.-fluid {
