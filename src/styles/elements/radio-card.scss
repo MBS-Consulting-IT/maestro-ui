@@ -1,0 +1,180 @@
+$radio-card-width: 128px;
+$radio-card-height: 116px;
+$radio-marker-size: 16px;
+$radio-marker-inner-size: 6px;
+
+.o-radio-cards {
+  display: flex;
+  flex-flow: row wrap;
+  gap: $space-5;
+
+  // previne exibir os ícones ou textos de ajuda sem o reposicionamento
+  // dos elementos realizado pelo javascript
+  > .o-radio-card-icon,
+  > .o-radio-card-help {
+    display: none;
+  }
+
+  > .form-check {
+    display: flex;
+    padding: 0;
+  }
+
+  input[type=radio] {
+    position: absolute;
+    outline: none;
+    left: -9999px;
+
+    &:focus + .o-radio-card-marker {
+      box-shadow: $form-ctrl-focus-shadow;
+      border: $form-ctrl-focus-border;
+    }
+
+    &:checked + .o-radio-card-marker {
+      background-color: rgba($color-blue-400, 0.075);
+      border: $form-ctrl-focus-border;
+    }
+
+    &:checked + .o-radio-card-marker + .o-radio-card-icon {
+      color: $color-blue-500;
+    }
+  }
+}
+
+.o-radio-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: $space-3;
+  align-items: center;
+  font-size: $form-ctrl-font-size !important;
+  color: $color-grey-800;
+  font-weight: $font-medium;
+  width: $radio-card-width;
+  height: $radio-card-height;
+  cursor: pointer;
+}
+
+.o-radio-card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  font-size: 22px;
+  color: $color-grey-300;
+  transition: all linear 0.15s;
+}
+
+.o-radio-card-help {
+  display: block;
+  margin: 0;
+  font-weight: $font-normal;
+  color: $color-grey-400;
+  font-size: $font-sm;
+  line-height: 1.2;
+}
+
+.o-radio-card-marker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: $form-ctrl-border;
+  border-radius: $form-ctrl-radius;
+  transition: all linear 0.15s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.015);
+  }
+}
+
+//
+// Stacked List
+//
+.o-radio-cards.-list {
+  display: inline-flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  &.-full {
+    min-width: 100%;
+
+    > .form-check {
+      display: flex;
+      flex: 1;
+    }
+
+    .o-radio-card {
+      flex: 1;
+    }
+  }
+
+  input[type=radio] {
+    position: absolute;
+    top: calc(50%);
+    transform: translateY(-50%);
+    left: $space-9 + 2px;
+
+    &:focus + .o-radio-card-marker {
+      box-shadow: $form-ctrl-focus-shadow;
+      border: $form-ctrl-focus-border;
+    }
+
+    &:checked + .o-radio-card-marker {
+      &::before {
+        border-color: $color-blue-600;
+        background-color: $color-blue-500;
+      }
+
+      &::after {
+        transform: scale(1) translateY(-50%);
+      }
+    }
+  }
+
+  .o-radio-card {
+    width: initial;
+    height: initial;
+    align-items: flex-start;
+    padding: $space-3 $space-6 $space-3 40px;
+    font-weight: $font-normal;
+  }
+
+  .o-radio-card-icon {
+    margin-left: $space-4;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .o-radio-card-marker {
+    &::before {
+      content: "";
+      position: absolute;
+      left: $space-4;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      width: $radio-marker-size;
+      height: $radio-marker-size;
+      background-color: #fff;
+      border: 1px solid $color-grey-400;
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: $space-4 + 5px;
+      transform: scale(0) translateY(-50%);
+      display: inline-flex;
+      width: $radio-marker-inner-size;
+      height: $radio-marker-inner-size;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform ease-in-out 0.15s;
+    }
+  }
+}
