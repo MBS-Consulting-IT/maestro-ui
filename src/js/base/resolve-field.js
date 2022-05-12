@@ -8,14 +8,16 @@
  * @returns {HTMLElement} campo Orquestra
  */
 export function resolveOrquestraField ({ container, editable, readonly, errorMsg }) {
-  const field = container.querySelector(editable)
+  const fields = container.querySelectorAll(editable)
   const fieldReadonly = container.querySelector(readonly)
 
-  if (!field && !fieldReadonly) {
+  if (!fields.length && !fieldReadonly) {
     throw new Error(errorMsg)
   }
 
-  if (!field && fieldReadonly) return
+  if (!fields.length && fieldReadonly) return
 
-  return field
+  return fields.length > 1
+    ? [...fields]
+    : fields[0]
 }
