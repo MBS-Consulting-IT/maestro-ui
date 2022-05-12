@@ -70,6 +70,12 @@ const config = {
                 { text: 'Dot', link: '/elements/dot' },
                 { text: 'Tag', link: '/elements/tag' }
               ]
+            },
+            {
+              text: 'Formulário',
+              children: [
+                { text: 'Form Group', link: '/form/form-group' }
+              ]
             }
           ]
         }
