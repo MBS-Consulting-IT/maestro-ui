@@ -4,6 +4,7 @@
 
 @import "base/form.scss";
 @import "base/grid.scss";
+@import "base/reset.scss";
 @import "base/orquestra-reset.scss";
 @import "base/typograph.scss";
 
@@ -12,7 +13,6 @@
 @import "form/_all";
 
 .content {
-  overflow-x: hidden;
   text-rendering: optimizeLegibility;
   font-family: $font-family;
   color: $color-grey-700;
