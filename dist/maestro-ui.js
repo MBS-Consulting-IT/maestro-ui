@@ -7,15 +7,15 @@
   const PADDING_IN_PIXELS = 3;
   const BORDER_IN_PIXELS = 1;
 
-  const NAME$3 = 'Segment';
+  const NAME$6 = 'Segment';
 
-  const FIELD$1 = {
+  const FIELD$4 = {
     EDITABLE: 'select[xname]',
     READONLY: 'input[type=hidden][xname]',
     TEXT: 'div[xid]'
   };
 
-  const CSS_CLASSES$3 = {
+  const CSS_CLASSES$6 = {
     GROUP_CLASS: 'o-segments',
     LABEL_CLASS: 'o-segment',
     SELECTION_CLASS: 'o-segment-selection',
@@ -122,21 +122,23 @@
    * @returns {HTMLElement} campo Orquestra
    */
   function resolveOrquestraField ({ container, editable, readonly, errorMsg }) {
-    const field = container.querySelector(editable);
+    const fields = container.querySelectorAll(editable);
     const fieldReadonly = container.querySelector(readonly);
 
-    if (!field && !fieldReadonly) {
+    if (!fields.length && !fieldReadonly) {
       throw new Error(errorMsg)
     }
 
-    if (!field && fieldReadonly) return
+    if (!fields.length && fieldReadonly) return
 
-    return field
+    return fields.length > 1
+      ? [...fields]
+      : fields[0]
   }
 
   function Segment (reference, props = {}) {
     const container = resolveReference(reference, {
-      name: NAME$3,
+      name: NAME$6,
       root: props.root
     });
 
@@ -182,7 +184,7 @@
 
     if (!instance.controller) return
 
-    container[`_${NAME$3}`] = instance;
+    container[`_${NAME$6}`] = instance;
 
     return instance
 
@@ -193,9 +195,9 @@
     function mount () {
       const field = resolveOrquestraField({
         container: instance.container,
-        editable: FIELD$1.EDITABLE,
-        readonly: FIELD$1.READONLY,
-        errorMsg: `[${NAME$3}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
+        editable: FIELD$4.EDITABLE,
+        readonly: FIELD$4.READONLY,
+        errorMsg: `[${NAME$6}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
       });
 
       if (!field) return
@@ -218,7 +220,7 @@
       instance.controller.style.removeProperty('display');
       instance.segmentGroup.remove();
 
-      delete instance.container[`_${NAME$3}`];
+      delete instance.container[`_${NAME$6}`];
 
       for (const propertyName of Object.getOwnPropertyNames(instance)) {
         instance[propertyName] = null;
@@ -233,7 +235,7 @@
         .map(option => {
           const segment = document.createElement('label');
 
-          segment.classList.add(CSS_CLASSES$3.LABEL_CLASS);
+          segment.classList.add(CSS_CLASSES$6.LABEL_CLASS);
           segment.dataset.option = option.value;
           segment.textContent = option.textContent;
 
@@ -242,8 +244,8 @@
 
       segmentGroup.setAttribute('tabIndex', '0');
       segmentGroup.appendChild(segmentSelection);
-      segmentGroup.classList.add(CSS_CLASSES$3.GROUP_CLASS);
-      segmentSelection.classList.add(CSS_CLASSES$3.SELECTION_CLASS);
+      segmentGroup.classList.add(CSS_CLASSES$6.GROUP_CLASS);
+      segmentSelection.classList.add(CSS_CLASSES$6.SELECTION_CLASS);
       segments.forEach(segment => segmentGroup.appendChild(segment));
 
       // ⚠️ inserir `segmentGroup` ao DOM antes de calcular o tamanho
@@ -295,7 +297,7 @@
 
       resetActiveClass();
 
-      segment.classList.add(CSS_CLASSES$3.ACTIVE_CLASS);
+      segment.classList.add(CSS_CLASSES$6.ACTIVE_CLASS);
       instance.controller.value = value;
       instance.controller.dispatchEvent(new Event('change'));
       state.value = value;
@@ -310,7 +312,7 @@
 
       resetActiveClass();
 
-      segment.classList.add(CSS_CLASSES$3.ACTIVE_CLASS);
+      segment.classList.add(CSS_CLASSES$6.ACTIVE_CLASS);
       state.value = value;
 
       moveTo(instance.controller.selectedIndex);
@@ -350,16 +352,16 @@
 
     function setEnabled () {
       state.disabled = false;
-      instance.segmentGroup.classList.remove(CSS_CLASSES$3.DISABLED_CLASS);
+      instance.segmentGroup.classList.remove(CSS_CLASSES$6.DISABLED_CLASS);
     }
 
     function setDisabled () {
       state.disabled = true;
-      instance.segmentGroup.classList.add(CSS_CLASSES$3.DISABLED_CLASS);
+      instance.segmentGroup.classList.add(CSS_CLASSES$6.DISABLED_CLASS);
     }
 
     function setTransition () {
-      instance.segmentSelection.classList.add(CSS_CLASSES$3.ANIMATED_CLASS);
+      instance.segmentSelection.classList.add(CSS_CLASSES$6.ANIMATED_CLASS);
     }
 
     function resizeSelection () {
@@ -380,7 +382,7 @@
 
     function resetActiveClass () {
       instance.segments.forEach(segment =>
-        segment.classList.remove(CSS_CLASSES$3.ACTIVE_CLASS)
+        segment.classList.remove(CSS_CLASSES$6.ACTIVE_CLASS)
       );
     }
 
@@ -439,15 +441,15 @@
     }
   }
 
-  const NAME$2 = 'Switch';
+  const NAME$5 = 'Switch';
 
-  const FIELD = {
+  const FIELD$3 = {
     EDITABLE: 'select[xname]',
     READONLY: 'input[type=hidden][xname]',
     TEXT: 'div[xid]'
   };
 
-  const CSS_CLASSES$2 = {
+  const CSS_CLASSES$5 = {
     CTRL_CLASS: 'o-switch',
     INNER_CLASS: 'o-switch-inner',
     LABEL_CLASS: 'o-switch-label',
@@ -457,7 +459,7 @@
 
   function Switch (reference, props = {}) {
     const container = resolveReference(reference, {
-      name: NAME$2,
+      name: NAME$5,
       root: props.root
     });
 
@@ -494,7 +496,7 @@
 
     if (!instance.controller) return
 
-    container[`_${NAME$2}`] = instance;
+    container[`_${NAME$5}`] = instance;
 
     return instance
 
@@ -505,9 +507,9 @@
     function mount () {
       const field = resolveOrquestraField({
         container: instance.container,
-        editable: FIELD.EDITABLE,
-        readonly: FIELD.READONLY,
-        errorMsg: `[${NAME$2}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
+        editable: FIELD$3.EDITABLE,
+        readonly: FIELD$3.READONLY,
+        errorMsg: `[${NAME$5}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
       });
 
       if (!field) return
@@ -525,7 +527,7 @@
       instance.controller.style.removeProperty('display');
       instance.switch.remove();
 
-      delete instance.container[`_${NAME$2}`];
+      delete instance.container[`_${NAME$5}`];
 
       for (const propertyName of Object.getOwnPropertyNames(instance)) {
         instance[propertyName] = null;
@@ -537,13 +539,13 @@
       const switchInner = document.createElement('div');
       const switchLabel = document.createElement('label');
 
-      switchContainer.classList.add(CSS_CLASSES$2.CTRL_CLASS);
+      switchContainer.classList.add(CSS_CLASSES$5.CTRL_CLASS);
       switchContainer.setAttribute('tabIndex', '0');
-      switchInner.classList.add(CSS_CLASSES$2.INNER_CLASS);
-      switchLabel.classList.add(CSS_CLASSES$2.LABEL_CLASS);
+      switchInner.classList.add(CSS_CLASSES$5.INNER_CLASS);
+      switchLabel.classList.add(CSS_CLASSES$5.LABEL_CLASS);
       switchLabel.textContent = instance.controller[1].value;
 
-      if (state.active) switchContainer.classList.add(CSS_CLASSES$2.ACTIVE_CLASS);
+      if (state.active) switchContainer.classList.add(CSS_CLASSES$5.ACTIVE_CLASS);
 
       switchContainer.appendChild(switchInner);
       switchContainer.appendChild(switchLabel);
@@ -596,18 +598,18 @@
 
     function setEnabled () {
       state.disabled = false;
-      instance.switch.classList.remove(CSS_CLASSES$2.DISABLED_CLASS);
+      instance.switch.classList.remove(CSS_CLASSES$5.DISABLED_CLASS);
     }
 
     function setDisabled () {
       state.disabled = true;
-      instance.switch.classList.add(CSS_CLASSES$2.DISABLED_CLASS);
+      instance.switch.classList.add(CSS_CLASSES$5.DISABLED_CLASS);
     }
 
     function toggleActiveClass () {
       state.active
-        ? instance.switch.classList.add(CSS_CLASSES$2.ACTIVE_CLASS)
-        : instance.switch.classList.remove(CSS_CLASSES$2.ACTIVE_CLASS);
+        ? instance.switch.classList.add(CSS_CLASSES$5.ACTIVE_CLASS)
+        : instance.switch.classList.remove(CSS_CLASSES$5.ACTIVE_CLASS);
     }
 
     function getFieldValueByState () {
@@ -650,9 +652,9 @@
     }
   }
 
-  const NAME$1 = 'Collapse';
+  const NAME$4 = 'Collapse';
 
-  const CSS_CLASSES$1 = {
+  const CSS_CLASSES$4 = {
     CONTAINER_CLASS: 'o-collapse',
     ITEM_CLASS: 'o-collapse-item',
     ITEM_HEADER_CLASS: 'o-collapse-header',
@@ -662,7 +664,7 @@
 
   function Collapse (reference, props = {}) {
     const container = resolveReference(reference, {
-      name: NAME$1,
+      name: NAME$4,
       root: props.root
     });
 
@@ -698,7 +700,7 @@
 
     mount();
 
-    container[`_${NAME$1}`] = instance;
+    container[`_${NAME$4}`] = instance;
 
     return instance
 
@@ -721,7 +723,7 @@
         itemHeader.removeEventListener('click', onKeydown);
       });
 
-      delete instance.container[`_${NAME$1}`];
+      delete instance.container[`_${NAME$4}`];
 
       for (const propertyName of Object.getOwnPropertyNames(instance)) {
         instance[propertyName] = null;
@@ -729,7 +731,7 @@
     }
 
     function createCollapse () {
-      instance.items = [...instance.container.querySelectorAll(`.${CSS_CLASSES$1.ITEM_CLASS}`)];
+      instance.items = [...instance.container.querySelectorAll(`.${CSS_CLASSES$4.ITEM_CLASS}`)];
 
       instance.items.forEach(item => {
         const itemHeader = getCollapseHeader(item);
@@ -770,29 +772,29 @@
     }
 
     function toggleCollapse (collapse) {
-      collapse.classList.toggle(CSS_CLASSES$1.ACTIVE_CLASS);
+      collapse.classList.toggle(CSS_CLASSES$4.ACTIVE_CLASS);
 
       updateCurrent();
     }
 
     function showCollapse (collapse) {
-      collapse.classList.add(CSS_CLASSES$1.ACTIVE_CLASS);
+      collapse.classList.add(CSS_CLASSES$4.ACTIVE_CLASS);
 
       updateCurrent();
     }
 
     function hideCollapse (collapse) {
-      collapse.classList.remove(CSS_CLASSES$1.ACTIVE_CLASS);
+      collapse.classList.remove(CSS_CLASSES$4.ACTIVE_CLASS);
 
       updateCurrent();
     }
 
     function setEnabled (collapse) {
-      collapse.classList.remove(CSS_CLASSES$1.DISABLED_CLASS);
+      collapse.classList.remove(CSS_CLASSES$4.DISABLED_CLASS);
     }
 
     function setDisabled (collapse) {
-      collapse.classList.add(CSS_CLASSES$1.DISABLED_CLASS);
+      collapse.classList.add(CSS_CLASSES$4.DISABLED_CLASS);
 
       hideCollapse(collapse);
     }
@@ -804,25 +806,25 @@
     }
 
     function isDisabled (collapse) {
-      return collapse.classList.contains(CSS_CLASSES$1.DISABLED_CLASS)
+      return collapse.classList.contains(CSS_CLASSES$4.DISABLED_CLASS)
     }
 
     function isActive (collapse) {
-      return collapse.classList.contains(CSS_CLASSES$1.ACTIVE_CLASS)
+      return collapse.classList.contains(CSS_CLASSES$4.ACTIVE_CLASS)
     }
 
     function getCollapseContainer (innerElement) {
-      return innerElement.closest(`.${CSS_CLASSES$1.ITEM_CLASS}`)
+      return innerElement.closest(`.${CSS_CLASSES$4.ITEM_CLASS}`)
     }
 
     function getCollapseHeader (collapse) {
-      return collapse.querySelector(`.${CSS_CLASSES$1.ITEM_HEADER_CLASS}`)
+      return collapse.querySelector(`.${CSS_CLASSES$4.ITEM_HEADER_CLASS}`)
     }
 
     function getItemByIndex (index) {
       const item = instance.items[index];
 
-      if (!item) console.warn(`[${NAME$1}]: item não encontrado para o índice ${index}`);
+      if (!item) console.warn(`[${NAME$4}]: item não encontrado para o índice ${index}`);
 
       return item
     }
@@ -864,15 +866,15 @@
     }
   }
 
-  const NAME = 'Toggler';
+  const NAME$3 = 'Toggler';
 
-  const CSS_CLASSES = {
+  const CSS_CLASSES$3 = {
     OPEN_CLASS: '-open'
   };
 
   function Toggler (reference, props = {}) {
     const trigger = resolveReference(reference, {
-      name: NAME,
+      name: NAME$3,
       root: props.root
     });
 
@@ -905,7 +907,7 @@
 
     mount();
 
-    trigger[`_${NAME}`] = instance;
+    trigger[`_${NAME$3}`] = instance;
 
     return instance
 
@@ -924,7 +926,7 @@
       instance.trigger.removeEventListener('click', onClick);
       instance.trigger.removeEventListener('click', onKeydown);
 
-      delete instance.trigger[`_${NAME}`];
+      delete instance.trigger[`_${NAME$3}`];
 
       for (const propertyName of Object.getOwnPropertyNames(instance)) {
         instance[propertyName] = null;
@@ -956,15 +958,664 @@
     // ---------------------------------
 
     function toggle () {
-      instance.content.classList.toggle(CSS_CLASSES.OPEN_CLASS);
+      instance.content.classList.toggle(CSS_CLASSES$3.OPEN_CLASS);
     }
 
     function show () {
-      instance.content.classList.add(CSS_CLASSES.OPEN_CLASS);
+      instance.content.classList.add(CSS_CLASSES$3.OPEN_CLASS);
     }
 
     function hide () {
-      instance.content.classList.remove(CSS_CLASSES.OPEN_CLASS);
+      instance.content.classList.remove(CSS_CLASSES$3.OPEN_CLASS);
+    }
+
+    function destroy () {
+      unmount();
+    }
+  }
+
+  const NAME$2 = 'ButtonRadio';
+
+  const FIELD$2 = {
+    EDITABLE: 'select[xname]',
+    READONLY: 'input[type=hidden][xname]',
+    TEXT: 'div[xid]'
+  };
+
+  const CSS_CLASSES$2 = {
+    GROUP_CLASS: 'btn-group',
+    BTN_CLASSES: ['btn', 'btn-radio'],
+    ACTIVE_CLASS: '-active',
+    DISABLED_CLASS: '-disabled'
+  };
+
+  function ButtonRadio (reference, props = {}) {
+    const container = resolveReference(reference, {
+      name: NAME$2,
+      root: props.root
+    });
+
+    return resolveInstance({
+      props,
+      reference: container,
+      factory: ButtonRadioFactory
+    })
+  }
+
+  function ButtonRadioFactory (container, props) {
+    const state = {
+      value: null,
+      disabled: false
+    };
+
+    const instance = {
+      container,
+      controller: null,
+      buttonGroup: null,
+      buttons: null,
+      select,
+      reset,
+      disable,
+      enable,
+      value,
+      destroy
+    };
+
+    try {
+      mount();
+    } catch (error) {
+      return console.warn(error)
+    }
+
+    container[`_${NAME$2}`] = instance;
+
+    return instance
+
+    // ---------------------------------
+    // 🔒 Métodos Privados
+    // ---------------------------------
+    function mount () {
+      const field = resolveOrquestraField({
+        container: instance.container,
+        editable: FIELD$2.EDITABLE,
+        readonly: FIELD$2.READONLY,
+        errorMsg: `[${NAME$2}]: nenhum campo Orquestra do tipo caixa de seleção encontrado`
+      });
+
+      if (!field) return
+
+      instance.controller = field;
+      state.value = instance.controller.value;
+
+      createButtonGroup();
+      addTriggers();
+    }
+
+    function unmount () {
+      instance.controller.removeEventListener('change', onControllerChange);
+      instance.controller.style.removeProperty('display');
+      instance.buttonGroup.remove();
+
+      delete instance.container[`_${NAME$2}`];
+
+      for (const propertyName of Object.getOwnPropertyNames(instance)) {
+        instance[propertyName] = null;
+      }
+    }
+
+    function createButtonGroup () {
+      const buttonGroup = document.createElement('div');
+      const buttons = [...instance.controller.querySelectorAll('option')]
+        .filter(option => !!option.value)
+        .map(option => {
+          const button = document.createElement('button');
+
+          button.classList.add(...CSS_CLASSES$2.BTN_CLASSES);
+          button.dataset.option = option.value;
+          button.textContent = option.textContent;
+          button.type = 'button';
+
+          return button
+        });
+
+      buttonGroup.classList.add(CSS_CLASSES$2.GROUP_CLASS);
+      buttons.forEach(button => buttonGroup.appendChild(button));
+      container.insertAdjacentElement('beforeend', buttonGroup);
+
+      instance.controller.style.display = 'none';
+      instance.buttonGroup = buttonGroup;
+      instance.buttons = buttons;
+    }
+
+    function addTriggers () {
+      instance.buttons.forEach(button =>
+        button.addEventListener('click', onClick)
+      );
+
+      instance.controller
+        .addEventListener('change', onControllerChange);
+    }
+
+    function onClick (event) {
+      const value = this.dataset.option;
+      const isCurrent = state.value === value;
+
+      event.preventDefault();
+
+      if (state.disabled || isCurrent || !value) return
+
+      setOption(value);
+    }
+
+    function onControllerChange () {
+      setOption(this.value, { silent: true });
+    }
+
+    function setOption (value, { silent } = {}) {
+      const button = getButtonByValue(value);
+
+      if (!button) return resetOption()
+
+      resetActiveClass();
+
+      button.classList.add(CSS_CLASSES$2.ACTIVE_CLASS);
+      state.value = value;
+
+      if (silent) return
+
+      instance.controller.value = value;
+      instance.controller.dispatchEvent(new Event('change'));
+    }
+
+    function getButtonByValue (value) {
+      return instance.buttons
+        .find(button => button.dataset.option === value)
+    }
+
+    function resetOption () {
+      state.value = '';
+      instance.controller.value = '';
+
+      resetActiveClass();
+    }
+
+    function resetActiveClass () {
+      instance.buttons.forEach(button =>
+        button.classList.remove(CSS_CLASSES$2.ACTIVE_CLASS)
+      );
+    }
+
+    function setEnabled () {
+      state.disabled = false;
+      instance.buttonGroup.classList.remove(CSS_CLASSES$2.DISABLED_CLASS);
+    }
+
+    function setDisabled () {
+      state.disabled = true;
+      instance.buttonGroup.classList.add(CSS_CLASSES$2.DISABLED_CLASS);
+    }
+
+    // ---------------------------------
+    // 🔑 Métodos Públicos
+    // ---------------------------------
+
+    function select (value) {
+      setOption(value);
+    }
+
+    function reset () {
+      resetOption();
+    }
+
+    function disable () {
+      setDisabled();
+    }
+
+    function enable () {
+      setEnabled();
+    }
+
+    function value () {
+      return state.value
+    }
+
+    function destroy () {
+      unmount();
+    }
+  }
+
+  const NAME$1 = 'RadioCard';
+
+  const FIELD$1 = {
+    EDITABLE: 'input[type=radio][xname]',
+    READONLY: 'input[type=hidden][xname]',
+    TEXT: 'div[xid]'
+  };
+
+  const CSS_CLASSES$1 = {
+    RADIO_CLASS: 'o-radio-card',
+    RADIO_MARKER_CLASS: 'o-radio-card-marker'
+  };
+
+  function RadioCard (reference, props = {}) {
+    const container = resolveReference(reference, {
+      name: NAME$1,
+      root: props.root
+    });
+
+    return resolveInstance({
+      props,
+      reference: container,
+      factory: RadioCardFactory
+    })
+  }
+
+  function RadioCardFactory (container, props) {
+    const state = {
+      value: null,
+      disabled: false
+    };
+
+    const instance = {
+      container,
+      radios: null,
+      reset,
+      disable,
+      enable,
+      value,
+      destroy
+    };
+
+    try {
+      mount();
+    } catch (error) {
+      return console.warn(error)
+    }
+
+    container[`_${NAME$1}`] = instance;
+
+    return instance
+
+    // ---------------------------------
+    // 🔒 Métodos Privados
+    // ---------------------------------
+
+    function mount () {
+      const fields = resolveOrquestraField({
+        container: instance.container,
+        editable: FIELD$1.EDITABLE,
+        readonly: FIELD$1.READONLY,
+        errorMsg: `[${NAME$1}]: nenhum campo Orquestra do tipo input radio encontrado`
+      });
+
+      if (!fields) return
+
+      instance.radios = fields;
+
+      createRadioCard();
+      setValue();
+      addTriggers();
+    }
+
+    function unmount () {
+      instance.radios.forEach(radio =>
+        radio.removeEventListener('change', setValue)
+      );
+
+      delete instance.container[`_${NAME$1}`];
+
+      for (const propertyName of Object.getOwnPropertyNames(instance)) {
+        instance[propertyName] = null;
+      }
+    }
+
+    function createRadioCard () {
+      const radioMarker = `<div class="${CSS_CLASSES$1.RADIO_MARKER_CLASS}"></div>`;
+
+      instance.radios.forEach(radio => {
+        const label = radio.closest('label');
+        const option = radio.value;
+        const textNode = radio.nextSibling;
+        const radioText = textNode.textContent;
+
+        const radioHelp = getRadioElementByOption({
+          option,
+          dataProp: 'help',
+          container: instance.container
+        });
+
+        const radioIcon = getRadioElementByOption({
+          option,
+          dataProp: 'icon',
+          container: instance.container
+        });
+
+        textNode.remove();
+        label.classList.add(CSS_CLASSES$1.RADIO_CLASS);
+
+        if (radioHelp) radio.insertAdjacentElement('afterend', radioHelp);
+
+        radio.insertAdjacentHTML('afterend', `<span>${radioText}</span>`);
+
+        if (radioIcon) radio.insertAdjacentElement('afterend', radioIcon);
+
+        radio.insertAdjacentHTML('afterend', radioMarker);
+      });
+    }
+
+    function addTriggers () {
+      instance.radios.forEach(radio =>
+        radio.addEventListener('change', setValue)
+      );
+    }
+
+    function getValue () {
+      return instance.radios
+        .find(radio => radio.checked)?.value
+    }
+
+    function setValue () {
+      state.value = getValue();
+    }
+
+    function resetValue () {
+      instance.radios
+        .forEach(radio => {
+          radio.checked = false;
+        });
+    }
+
+    function setEnabled () {
+      state.disabled = false;
+
+      instance.radios
+        .forEach(radio => {
+          radio.disabled = false;
+        });
+    }
+
+    function setDisabled () {
+      state.disabled = true;
+
+      instance.radios
+        .forEach(radio => {
+          radio.disabled = true;
+        });
+    }
+
+    function getRadioElementByOption ({ container, dataProp, option }) {
+      const partial = container
+        .querySelector(`[data-radio-${dataProp}="${option}"]`);
+
+      if (!partial) return null
+
+      const partialClone = partial.cloneNode(true);
+
+      partialClone.removeAttribute('data-radio-help');
+      partial.remove();
+
+      return partialClone
+    }
+
+    // ---------------------------------
+    // 🔑 Métodos Públicos
+    // ---------------------------------
+
+    function reset () {
+      resetValue();
+    }
+
+    function disable () {
+      setDisabled();
+    }
+
+    function enable () {
+      setEnabled();
+    }
+
+    function value () {
+      return state.value
+    }
+
+    function destroy () {
+      unmount();
+    }
+  }
+
+  const NAME = 'SelectCard';
+
+  const FIELD = {
+    EDITABLE: 'select[xname]',
+    READONLY: 'input[type=hidden][xname]',
+    TEXT: 'div[xid]'
+  };
+
+  const CSS_CLASSES = {
+    RADIO_CLASS: 'o-radio-card',
+    RADIO_MARKER_CLASS: 'o-radio-card-marker'
+  };
+
+  function SelectCard (reference, props = {}) {
+    const container = resolveReference(reference, {
+      name: NAME,
+      root: props.root
+    });
+
+    return resolveInstance({
+      props,
+      reference: container,
+      factory: SelectCardFactory
+    })
+  }
+
+  function SelectCardFactory (container, props) {
+    const state = {
+      value: null,
+      disabled: false
+    };
+
+    const instance = {
+      container,
+      fieldId: null,
+      radios: null,
+      select: null,
+      reset,
+      disable,
+      enable,
+      value,
+      destroy
+    };
+
+    try {
+      mount();
+    } catch (error) {
+      return console.warn(error)
+    }
+
+    container[`_${NAME}`] = instance;
+
+    return instance
+
+    // ---------------------------------
+    // 🔒 Métodos Privados
+    // ---------------------------------
+
+    function mount () {
+      const field = resolveOrquestraField({
+        container: instance.container,
+        editable: FIELD.EDITABLE,
+        readonly: FIELD.READONLY,
+        errorMsg: `[${NAME}]: nenhum campo Orquestra do tipo input radio encontrado`
+      });
+
+      if (!field) return
+
+      instance.select = field;
+      instance.fieldId = field.getAttribute('xname').substring(3);
+
+      createSelectCard();
+
+      instance.radios = [
+        ...instance.container
+          .querySelectorAll(`input[name=${instance.fieldId}]`)
+      ];
+
+      setInitialValue();
+      addTriggers();
+
+      // Forçar change para verificação de fontes de dados mapeadas ao campo
+      // É preciso agendar com `setTimeout` para o Zeev detectar o evento
+      setTimeout(() => {
+        instance.select.dispatchEvent(new Event('change'));
+      }, 0);
+    }
+
+    function unmount () {
+      instance.radios.forEach(radio =>
+        radio.remove()
+      );
+
+      instance.select.removeAttribute('style');
+
+      delete instance.container[`_${NAME}`];
+
+      for (const propertyName of Object.getOwnPropertyNames(instance)) {
+        instance[propertyName] = null;
+      }
+    }
+
+    function createSelectCard () {
+      const radioMarker = `<div class="${CSS_CLASSES.RADIO_MARKER_CLASS}"></div>`;
+      const radioCards = [...instance.select.options]
+        .filter(({ value }) => !!value)
+        .map((option, index) => {
+          const { value, textContent } = option;
+
+          const cardHelp = retrieveComplementByOption({
+            option: value,
+            dataProp: 'help',
+            container: instance.container
+          });
+
+          const cardIcon = retrieveComplementByOption({
+            option,
+            dataProp: 'icon',
+            container: instance.container
+          });
+
+          return `
+        <label for="${instance.fieldId}-${index}" class="radio ${CSS_CLASSES.RADIO_CLASS}">
+          <input
+            name="${instance.fieldId}"
+            type="radio"
+            id="${instance.fieldId}-${index}"
+            value="${value}"
+          >
+          ${radioMarker}
+          ${cardIcon}
+          <span>${textContent}</span>
+          ${cardHelp}
+        </label>
+      `
+        }).join('');
+
+      instance.container.insertAdjacentHTML(
+        'afterbegin',
+        radioCards
+      );
+
+      instance.select.style.display = 'none';
+    }
+
+    function addTriggers () {
+      instance.radios.forEach(radio =>
+        radio.addEventListener('change', setValue)
+      );
+    }
+
+    function getValue () {
+      return instance.radios
+        .find(radio => radio.checked)?.value || ''
+    }
+
+    function setInitialValue () {
+      state.value = instance.select.value;
+
+      if (!state.value) return
+
+      const radioToSelect = instance.radios
+        .find(radio => radio.value === state.value);
+
+      radioToSelect.checked = true;
+    }
+
+    function setValue () {
+      state.value = getValue();
+      instance.select.value = state.value;
+      instance.select.dispatchEvent(new Event('change'));
+    }
+
+    function resetValue () {
+      instance.radios
+        .forEach(radio => {
+          radio.checked = false;
+        });
+
+      instance.select.value = '';
+      state.value = '';
+    }
+
+    function setEnabled () {
+      state.disabled = false;
+
+      instance.radios
+        .forEach(radio => {
+          radio.disabled = false;
+        });
+    }
+
+    function setDisabled () {
+      state.disabled = true;
+
+      instance.radios
+        .forEach(radio => {
+          radio.disabled = true;
+        });
+    }
+
+    function retrieveComplementByOption ({ container, dataProp, option }) {
+      const partial = container
+        .querySelector(`[data-radio-${dataProp}="${option}"]`);
+
+      if (!partial) return ''
+
+      partial.removeAttribute('data-radio-help');
+
+      const markup = partial.outerHTML;
+
+      partial.remove();
+
+      return markup
+    }
+
+    // ---------------------------------
+    // 🔑 Métodos Públicos
+    // ---------------------------------
+
+    function reset () {
+      resetValue();
+    }
+
+    function disable () {
+      setDisabled();
+    }
+
+    function enable () {
+      setEnabled();
+    }
+
+    function value () {
+      return state.value
     }
 
     function destroy () {
@@ -976,7 +1627,10 @@
     Segment,
     Switch,
     Collapse,
-    Toggler
+    Toggler,
+    ButtonRadio,
+    RadioCard,
+    SelectCard
   };
 
   return main;
