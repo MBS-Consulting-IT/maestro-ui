@@ -9,8 +9,14 @@
     &:not(:first-child) {
       padding-left: $form-ctrl-height;
     }
+  }
 
-    &:not(:last-child) {
+  /// @todo refatorar side-effect
+  // O Orquestra adiciona um elemento `em` logo após o input
+  // fazendo com que este nunca seja o último elemento.
+  // Inviabiliza o uso com `input:not(:last-child)`
+  &.-posfix {
+    input {
       padding-right: $form-ctrl-height;
     }
   }
