@@ -10,7 +10,8 @@
   // O espaçamento é aplicado diretamente no control
   // para evitar espaçamento no label quando não for
   // seguide de um `o-form-ctrl`
-  & + .o-form-ctrl {
+  & + .o-form-ctrl,
+  & + .o-form-group {
     margin-top: 2px;
   }
 }
@@ -24,5 +25,5 @@
   font-size: $font-m;
   color: $color-grey-500;
   line-height: 1.2;
-  margin-bottom: $space-2;
+  margin-bottom: $space-2 !important; // @override global.css
 }
