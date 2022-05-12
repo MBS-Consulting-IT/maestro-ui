@@ -16,20 +16,22 @@ $chip-height: 26px;
 
   .o-dot.-pulse {
     padding-left: $space-4;
+    color: $color-grey-500;
 
     &::after {
       left: -#{$space-1};
+      top: 3px;
     }
 
     &::before {
       left: -#{$space-4};
+      top: 6px;
     }
   }
 }
 
 .o-chip-icon {
   position: relative;
-  top: -1px;
   margin-right: 5px;
   margin-left: -2px;
   font-size: $font-sm;
