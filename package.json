@@ -11,13 +11,14 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "dev": "rollup -c -w",
+    "dev:js": "rollup -c -w",
     "dev:css": "sass src/styles/main.scss dist/maestro-ui.css --watch",
     "prebuild": "rimraf dist",
     "build": "npm run build:js && npm run build:css",
     "build:js": "rollup -c",
     "build:css": "sass src/styles/main.scss dist/maestro-ui.css && sass src/styles/main.scss dist/maestro-ui.min.css --style compressed",
-    "test": "jest ./src",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "eslint ./src"
   },
   "keywords": [
@@ -38,9 +39,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    "@parcel/transformer-sass": "^2.0.1",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@types/jest": "^27.0.3",
+    "c8": "^7.11.3",
     "chance": "^1.1.8",
     "eslint": "7.12.1",
     "eslint-config-standard": "^16.0.3",
@@ -48,10 +47,11 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-vue": "^8.3.0",
-    "jest": "^27.3.1",
+    "happy-dom": "^6.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.60.0",
     "sass": "^1.47.0",
-    "vitepress": "^0.21.6"
+    "vitepress": "^0.21.6",
+    "vitest": "^0.17.0"
   }
 }
