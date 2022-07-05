@@ -60,7 +60,9 @@ const config = {
             {
               text: 'Componentes',
               children: [
+                { text: 'Collapse', link: '/components/collapse' },
                 { text: 'Empty', link: '/components/empty' },
+                { text: 'Steps', link: '/components/steps' },
                 { text: 'Tabs', link: '/components/tabs' }
               ]
             },
