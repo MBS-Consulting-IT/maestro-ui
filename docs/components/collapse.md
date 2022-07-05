@@ -11,3 +11,26 @@
     <p>Hello</p>
   </div>
 </div>
+
+<div class="main-test u-margin-top-10">
+  <div class="test header" data-toggler>Header</div>
+  <div class="test content">Content</div>
+</div>
+
+<style lang="scss">
+.test.-open {
+  border: 1px solid red;
+}
+</style>
+
+<script>
+import { Toggler } from '../../src/js/toggler'
+
+setTimeout(() => {
+  Toggler('[data-toggler]', {
+    content: document.querySelectorAll('.test')
+  })
+}, 150)
+
+console.log(Toggler)
+</script>
