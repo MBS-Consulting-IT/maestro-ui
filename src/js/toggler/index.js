@@ -50,7 +50,9 @@ function TogglerFactory (trigger, props) {
   // ---------------------------------
 
   function mount () {
-    instance.content = props.content
+    instance.content = props.content.length
+      ? [...props.content]
+      : [props.content]
 
     createToggler()
     addTriggers()
@@ -92,15 +94,21 @@ function TogglerFactory (trigger, props) {
   // ---------------------------------
 
   function toggle () {
-    instance.content.classList.toggle(CSS_CLASSES.OPEN_CLASS)
+    instance.content.forEach(ref =>
+      ref.classList.toggle(CSS_CLASSES.OPEN_CLASS)
+    )
   }
 
   function show () {
-    instance.content.classList.add(CSS_CLASSES.OPEN_CLASS)
+    instance.content.forEach(ref =>
+      ref.classList.add(CSS_CLASSES.OPEN_CLASS)
+    )
   }
 
   function hide () {
-    instance.content.classList.remove(CSS_CLASSES.OPEN_CLASS)
+    instance.content.forEach(ref =>
+      ref.classList.remove(CSS_CLASSES.OPEN_CLASS)
+    )
   }
 
   function destroy () {
