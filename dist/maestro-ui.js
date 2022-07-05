@@ -658,7 +658,7 @@
     CONTAINER_CLASS: 'o-collapse',
     ITEM_CLASS: 'o-collapse-item',
     ITEM_HEADER_CLASS: 'o-collapse-header',
-    ACTIVE_CLASS: '-active',
+    ACTIVE_CLASS: '-open',
     DISABLED_CLASS: '-disabled'
   };
 
@@ -916,7 +916,9 @@
     // ---------------------------------
 
     function mount () {
-      instance.content = props.content;
+      instance.content = props.content.length
+        ? [...props.content]
+        : [props.content];
 
       createToggler();
       addTriggers();
@@ -958,15 +960,21 @@
     // ---------------------------------
 
     function toggle () {
-      instance.content.classList.toggle(CSS_CLASSES$3.OPEN_CLASS);
+      instance.content.forEach(ref =>
+        ref.classList.toggle(CSS_CLASSES$3.OPEN_CLASS)
+      );
     }
 
     function show () {
-      instance.content.classList.add(CSS_CLASSES$3.OPEN_CLASS);
+      instance.content.forEach(ref =>
+        ref.classList.add(CSS_CLASSES$3.OPEN_CLASS)
+      );
     }
 
     function hide () {
-      instance.content.classList.remove(CSS_CLASSES$3.OPEN_CLASS);
+      instance.content.forEach(ref =>
+        ref.classList.remove(CSS_CLASSES$3.OPEN_CLASS)
+      );
     }
 
     function destroy () {
