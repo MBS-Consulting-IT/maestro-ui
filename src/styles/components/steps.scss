@@ -1,0 +1,221 @@
+$step-indicator-size: 28px;
+$substep-indicator-size: 9px;
+
+.o-steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.o-steps-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: $space-5;
+}
+
+.o-steps-title {
+  flex: 1;
+  font-size: $font-lg;
+  font-weight: $font-medium;
+  margin: 0;
+}
+
+.o-steps-count {
+  font-size: $font-m;
+  display: flex;
+  gap: $space-3;
+}
+
+.o-steps-items {
+  margin: 0;
+}
+
+.o-step {
+  margin: 0;
+  display: flex;
+
+  & + & {
+    margin-top: $space-7;
+  }
+}
+
+.o-step-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $step-indicator-size;
+  height: $step-indicator-size;
+  border-radius: 50%;
+  background-color: $color-grey-0;
+  border: 1px solid $color-grey-200;
+  font-size: 14px;
+  font-weight: $font-medium;
+  color: $color-grey-700;
+}
+
+.o-step-content {
+  padding: $space-1 $space-3;
+}
+
+.o-step-title {
+  font-size: $font-base;
+  font-weight: $font-medium;
+  color: $color-grey-700;
+
+  &:focus,
+  &:hover {
+    color: $color-grey-700;
+    text-decoration: underline;
+  }
+}
+
+.o-step-description {
+  font-size: $font-m;
+  color: $color-grey-500;
+  margin: 0;
+}
+
+//
+// Substeps
+//
+
+.o-steps-subitems {
+  margin: $space-3 0 0;
+}
+
+.o-substep {
+  font-size: $font-m;
+
+  & + & {
+    margin-top: $space-1;
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: $substep-indicator-size;
+    height: $substep-indicator-size;
+    margin-right: $space-2;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid $color-grey-300;
+  }
+
+  a {
+    color: $color-grey-700;
+
+    &:focus,
+    &:hover {
+      color: $color-grey-700;
+      text-decoration: underline;
+    }
+  }
+}
+
+//
+// Steps States
+//
+
+.o-step.-active {
+  .o-step-indicator {
+    color: $color-blue-600;
+    background-color: #fff;
+    border-color: $color-blue-400;
+    box-shadow: 0 0 1px 3px $color-blue-200;
+  }
+
+  .o-step-title {
+    color: $color-blue-600;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+}
+
+.o-step.-done {
+  .o-step-indicator {
+    position: relative;
+    color: transparent;
+    background-color: $color-blue-600;
+    border-color: $color-blue-700;
+
+    &::after {
+      content: "\f00c";
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-family: $font-icons;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+}
+
+.o-step.-error {
+  .o-step-indicator {
+    color: $color-red-600;
+    background-color: #fff;
+    border-color: $color-red-400;
+  }
+
+  &.-active {
+    .o-step-indicator {
+      border-color: $color-red-400;
+      box-shadow: 0 0 1px 3px $color-red-200;
+    }
+
+    .o-step-title {
+      color: $color-red-600;
+    }
+  }
+}
+
+.o-substep.-active {
+  &::before {
+    border-color: $color-blue-600;
+    box-shadow: 0 0 1px 3px $color-blue-200;
+  }
+
+  a {
+    color: $color-blue-600;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+}
+
+.o-substep.-done {
+  &::before {
+    border-color: $color-blue-700;
+    background-color: $color-blue-600;
+  }
+
+  a {
+    color: $color-blue-600;
+    font-weight: $font-bold;
+  }
+}
+
+.o-substep.-error {
+  &::before {
+    border-color: $color-red-400;
+  }
+
+  &.-active {
+    &::before {
+      border-color: $color-red-400;
+      box-shadow: 0 0 1px 3px $color-red-200;
+    }
+
+    a {
+      color: $color-red-600;
+    }
+  }
+}
