@@ -1858,7 +1858,14 @@ input[type=tel]:focus {
 }
 .o-shield.-gradient {
   background: linear-gradient(135deg, #6bb2f0 0%, #006dcc 100%);
-  box-shadow: 0 0 2px 0 #99caf5;
+  background: radial-gradient(100% 100% at 0% 0%, #002ABF 0%, #10C6FF 135%);
+  box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.o-shield.-gradient .fas {
+  background: linear-gradient(135deg, #fff 50%, rgba(123, 208, 255, 0.8) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .o-state {
@@ -1933,6 +1940,88 @@ input[type=tel]:focus {
   font-size: inherit;
   margin-left: 4px;
   color: #a8abb2;
+}
+
+.o-switch {
+  display: inline-block;
+  line-height: 16px;
+  font-size: 13.33px;
+  padding-left: 6px;
+  cursor: pointer;
+}
+.o-switch:focus {
+  outline: none;
+}
+.o-switch:focus .o-switch-inner {
+  border-color: #6bb2f0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 1px 2px rgba(23, 135, 232, 0.25);
+}
+.o-switch.-active .o-switch-inner {
+  border-color: #6bb2f0;
+  background-color: #006dcc;
+}
+.o-switch.-active .o-switch-inner::after {
+  transform: translateX(100%);
+}
+.o-switch.-disabled {
+  opacity: 0.5;
+}
+.o-switch.-disabled .o-switch-inner:hover {
+  cursor: not-allowed;
+}
+
+.o-switch-inner {
+  position: relative;
+  top: 2px;
+  left: -6px;
+  display: inline-block;
+  width: 30px;
+  height: 14px;
+  background-color: #e9eaec;
+  border: 1px solid #d4d5d9;
+  border-radius: 14px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+.o-switch-inner::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  margin-top: -2px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #d4d5d9;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+.o-switch-label {
+  display: inline;
+  cursor: pointer;
+}
+
+.o-switch input[type=checkbox] {
+  position: relative;
+  left: -9999px;
+}
+.o-switch input[type=checkbox]:checked + .o-switch-inner {
+  border-color: #6bb2f0;
+  background-color: #006dcc;
+}
+.o-switch input[type=checkbox]:checked + .o-switch-inner::after {
+  transform: translateX(100%);
+}
+.o-switch input[type=checkbox]:focus + .o-switch-inner {
+  border-color: #6bb2f0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 1px 2px rgba(23, 135, 232, 0.25);
+}
+
+.o-switch {
+  font-size: 13.33px !important;
+  padding-left: 6px !important;
 }
 
 .o-tag {
