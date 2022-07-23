@@ -1,0 +1,114 @@
+$switch-height: 14px;
+$switch-width: 30px;
+$switch-inner-size: 16px;
+$switch-inner-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+
+.o-switch {
+  display: inline-block;
+  line-height: $switch-inner-size;
+  font-size: $form-ctrl-font-size;
+  padding-left: 6px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+
+    .o-switch-inner {
+      border-color: $form-ctrl-focus-border-color;
+      box-shadow:
+        $switch-inner-shadow,
+        $form-ctrl-focus-shadow;
+    }
+  }
+
+  &.-active {
+    .o-switch-inner {
+      border-color: $form-ctrl-focus-border-color;
+      background-color: $color-blue-600;
+
+      &::after {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &.-disabled {
+    opacity: 0.5;
+
+    .o-switch-inner:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.o-switch-inner {
+  position: relative;
+  top: 2px;
+  left: -6px;
+  display: inline-block;
+  width: $switch-width;
+  height: $switch-height;
+  background-color: $color-grey-200;
+  border: 1px solid $color-grey-300;
+  border-radius: $switch-height;
+  box-shadow: $switch-inner-shadow;
+  transition: all 0.2s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    margin-top: -2px;
+    display: block;
+    width: $switch-inner-size;
+    height: $switch-inner-size;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid $color-grey-300;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.o-switch-label {
+  display: inline;
+  cursor: pointer;
+}
+
+//
+// Non-javascript support
+//
+.o-switch input[type=checkbox] {
+  position: relative;
+  left: -9999px;
+
+  &:checked {
+    + .o-switch-inner {
+      border-color: $form-ctrl-focus-border-color;
+      background-color: $color-blue-600;
+
+      &::after {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &:focus {
+    + .o-switch-inner {
+      border-color: $form-ctrl-focus-border-color;
+      box-shadow:
+        $switch-inner-shadow,
+        $form-ctrl-focus-shadow;
+    }
+  }
+}
+
+//
+// Overrides
+//
+
+// @override global.css
+.o-switch {
+  font-size: $form-ctrl-font-size !important;
+  padding-left: 6px !important;
+}
