@@ -70,7 +70,9 @@ const config = {
               text: 'Elementos',
               children: [
                 { text: 'Dot', link: '/elements/dot' },
-                { text: 'Tag', link: '/elements/tag' }
+                { text: 'Tag', link: '/elements/tag' },
+                { text: 'Shield', link: '/elements/shield' },
+                { text: 'Switch', link: '/elements/switch' }
               ]
             },
             {
