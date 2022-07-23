@@ -34,6 +34,14 @@ $shiled-size-sm: 22px;
 
   &.-gradient {
     background: linear-gradient(135deg, $color-blue-400 0%, $color-blue-600 100%);
-    box-shadow: 0 0 2px 0 $color-blue-300;
+    background: radial-gradient(100% 100% at 0% 0%, #002ABF 0%, #10C6FF 135%);
+    box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    .fas {
+      background: linear-gradient(135deg, #fff 50%, rgba(123, 208, 255, 0.8) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 }
