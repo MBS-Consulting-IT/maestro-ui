@@ -5,7 +5,7 @@
   "main": "dist/maestro-ui.esm.js",
   "module": "dist/maestro-ui.esm.js",
   "browser": "dist/maestro-ui.js",
-  "license": "LGPL-3.0",
+  "license": "MIT",
   "author": "Pedro Bernardo <pedrovbernardo@gmail.com>",
   "scripts": {
     "docs:dev": "vitepress dev docs",
